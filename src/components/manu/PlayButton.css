@@ -1,0 +1,283 @@
+.game-body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+nav .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+.header-balance {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.header-balance-text {
+  font-size: 12px;
+}
+.header-balance-value {
+  font-size: 16px;
+  color: #fff;
+  /* line-height: 140%; */
+  font-weight: 700;
+}
+.header-demo-mode {
+  background: rgba(34, 34, 34, 0.5);
+  color: #e6e6e6;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
+}
+.header-icon-item {
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.header-icon-item:hover {
+  animation: scalePulse 0.4s infinite alternate;
+}
+
+@keyframes scalePulse {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.2;
+  }
+}
+.game-body {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 580px;
+}
+.pump-button-container {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 10px;
+}
+@media (max-width: 1300px) {
+  .pump-button-container {
+    top: 5px;
+  }
+}
+
+.pump-button-wrapper {
+  width: 241px;
+  height: 88px;
+  border: none;
+  background-image: url("../MenuImages/blackPumpImage.svg");
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: relative; /* Ensure the button creates a new stacking context */
+  z-index: 2; /* Keep the button's content above */
+  /* animation: PumpWrapper01 .6s linear infinite alternate; */
+}
+
+.pump-button-wrapper-inner {
+  width: 230px;
+  height: 80px;
+  border: none;
+  cursor: pointer;
+  background-image: url("../MenuImages/LodingPump.svg");
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute; /* Ensure the button creates a new stacking context */
+  left: 20px;
+  bottom: 15px;
+  transform: translate(0.125rem, 0.125rem);
+  z-index: 2; /* Keep the button's content above */
+  /* animation: PumpWrapper01 .7s linear infinite alternate; */
+}
+
+.pump-button {
+  width: 222px;
+  height: 80px;
+  border: none;
+  cursor: pointer;
+  /* background-image: url('../../../public/MenuImages/pumpImg.webp'); */
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute; /* Ensure the button creates a new stacking context */
+  left: 25px;
+  top: -7px;
+  z-index: 2; /* Keep the button's content above */
+}
+
+.pump-button-text {
+  position: relative;
+  bottom: 18px;
+  left: -160px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 37px;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: #ffffff; /* Main white text color */
+  z-index: 2; /* Ensure it stays above the stroke */
+  transition: transform 0.2s ease;
+  will-change: transform;
+  /* animation: loadingText 0.4s lineart infinite alternate; */
+}
+
+.pump-button-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: -4px;
+  left: -3px;
+  z-index: -1;
+  color: transparent;
+  text-shadow: 5px 5px 0px #ff007a;
+  animation: loadingText 0.6s linear infinite alternate;
+}
+
+.pump-button-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: transparent;
+  -webkit-text-stroke: 2.5px #14193a;
+}
+.gander-togale {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  right: 24px;
+}
+.WallateIcon {
+  display: none;
+}
+
+@keyframes loadingText {
+  0% {
+    transform: translate(0.125rem, 0.125rem);
+  }
+  100% {
+    transform: translate(0.1875rem, 0.1875rem);
+  }
+}
+[data-active="true"] .pump-button-text::before {
+  animation: none; /* Disable before pseudo-element animation */
+  /* content: attr(data-text); Optional: Reset content if needed */
+  top: 0px;
+  left: -2px;
+}
+
+/*  */
+@keyframes PumpWrapper01 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translate(-0.4375rem, 0.375rem);
+  }
+}
+@keyframes PumpWrapper02 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translate(-0.25rem, 0.3125rem);
+  }
+}
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+@media (max-width: 768px) {
+  .WallateIcon {
+    display: inline-block;
+    font-size: 20px;
+  }
+  .header-balance-text {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (min-height: 540px) {
+  .game-viewport {
+    max-width: 980px;
+    max-height: 680px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .pump-button-wrapper {
+    width: 200px;
+    height: 71px;
+    /* animation: PumpWrapper01 .6s linear infinite alternate; */
+  }
+
+  .pump-button-wrapper-inner {
+    width: 187px;
+    height: 66px;
+    left: 18px;
+    bottom: 12px;
+    /* animation: PumpWrapper01 .7s linear infinite alternate; */
+  }
+  .pump-button {
+    width: 173px;
+    height: 62px;
+    left: 25px;
+    top: -3px;
+  }
+  .pump-button-text {
+    bottom: 16px;
+    left: -134px;
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .pump-button-container {
+    top: 15px;
+  }
+  .pump-button-wrapper {
+    width: 478px;
+    height: 175px;
+  }
+  .pump-button-wrapper-inner {
+    width: 470px;
+    height: 164px;
+  }
+  .pump-button {
+    width: 458px;
+    height: 163px;
+  }
+  .pump-button-text {
+    font-size: 60px;
+    left: -305px;
+    bottom: 31px;
+  }
+  .pump-button-text::after {
+    -webkit-text-stroke: 4px #14193a;
+  }
+}

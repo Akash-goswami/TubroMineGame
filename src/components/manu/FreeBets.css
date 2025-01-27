@@ -1,0 +1,46 @@
+.freebets-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  background: #000;
+  overflow-x: hidden;
+  position: relative;
+  background-image: url(../MenuImages/FreebetBac.webp);
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.rules-cross {
+  cursor: pointer;
+}
+
+.main-bet-panel h2 {
+  width: 100%;
+  height: 500px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  padding-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-container {
+  display: flex;
+  color: #7a7a7a;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 25px 0px 0px;
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 320px) {
+  .main-bet-panel h2 {
+    height: 0px;
+  }
+}

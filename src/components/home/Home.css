@@ -1,0 +1,959 @@
+.red-colore-click {
+  color: red;
+}
+
+.game-wrapper {
+  width: 100%;
+  height: 100vh;
+  /* overflow-y: auto; */
+  /* border: 0; */
+  background-color: var(--bg-Color);
+  /* padding-bottom: 5px; */
+  /* / border: 1px solid red; / */
+  position: relative;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 8px;
+}
+.header-icon{
+  display:flex;
+  gap: 8px;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  /* .game-wrapper {
+    height: calc(100vh - 60px) !important;
+  }   */
+  @media screen and (max-width: 390px) {
+    .main-game-WiningAmount {
+      top: -30px !important;
+    }
+  }
+
+  /* IOS PHONES  */
+  @media (max-width: 400px) {
+    .game-wrapper {
+      /* Styles for devices with width between 568px and 768px */
+      height: calc(100vh - 80px) !important;
+    }
+  }
+
+  @media (min-width: 375px) and (max-width: 468px) {
+    .game-wrapper {
+      /* Styles for devices with width between 568px and 768px */
+      height: calc(100vh - 50px) !important;
+    }
+  }
+
+  /* IOS TABLETS KE LIYE  */
+  @media (min-width: 768px) and (max-width: 834px) {
+    .game-wrapper {
+      /* Styles for devices with width between 568px and 768px */
+      height: calc(100vh - 60px) !important;
+    }
+    .main-game-WiningAmount {
+      top: -50px !important;
+    }
+  }
+
+  /* IOS TABLETS KE LIYE ROTATED KE LIYE  */
+  @media (min-height: 700px) and (max-height: 768px) {
+    .game-wrapper {
+      /* Styles for devices with width between 568px and 768px */
+      height: calc(100vh - 60px) !important;
+    }
+  }
+}
+
+.game-viewport {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  /* overflow-y: auto; */
+  /* margin: 0 auto; */
+  /* position: fixed; */
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  */
+}
+
+.gameMain {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 1px 1px #ffffff3b;
+  overflow: hidden;
+  position: relative;
+}
+.betContainer{
+  width:327px;
+  height:450px;
+  /* background:red; */
+  border:1px solid gray;
+  border-radius:20px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .game {
+    height: 100%;
+  }
+}
+
+.gui-bg-gradiant {
+  /* background-image: radial-gradient(circle at 50% 62%, #1cc49a, #0870aa 88%); */
+}
+
+@media only screen and (min-width: 768px) and (min-height: 540px) {
+  .game-viewport {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-wrapper {
+    height: calc(100vh - 60px);
+    /* 60px is the height of the header */
+  }
+
+  .game-viewport {
+    width: 100%;
+    /* height: var(--viewport-height, 100vh); */
+    margin: 0;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    /* / height: 100%; / */
+  }
+}
+/* android tablet media query */
+@media (min-width: 769px) and (max-width: 834px) {
+  .game-wrapper {
+    height: calc(100vh - 95px);
+    /* 60px is the height of the header */
+  }
+}
+@media (min-height: 650px) and (max-height: 670px) {
+  .game-wrapper {
+    height: calc(100vh - 150px);
+    /* 60px is the height of the header */
+  }
+}
+
+nav {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.main-game-logo {
+  /* width: 14.5rem;
+  height: 7.25rem; */
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  /* z-index: 99999; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .main-game-logo img {
+  width: 20rem;
+  height: 20rem;
+} */
+.main-game-WiningAmount {
+  /* width: 14.5rem;
+  height: 7.25rem; */
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  /* z-index: 99999; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-game-notifysleact {
+  /* width: 14.5rem;
+  height: 7.25rem; */
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  /* z-index: 99999; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-game-logo img {
+  width: 25rem;
+  height: 12.5rem;
+}
+@media screen and (max-width: 1300px) {
+  .main-game-logo img {
+    width: 14.5rem;
+    height: 7.25rem;
+  }
+}
+
+.win-pop-Body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.game-body {
+  z-index: 999;
+  position: absolute;
+  height: 80%;
+  top: 50%;
+  transform: translateY(8%);
+  right: 55px;
+  top: 0;
+}
+@media (max-width: 468px) {
+  .game-body {
+    right: 0px;
+  }
+}
+
+/* .game-body-play-button{
+  /* width: 27%; */
+/* width: 17.4%; */
+/* width: 100%; */
+/* position: absolute;
+  left: 50%;
+  /* background-color: #ff003a; */
+/* left: 48%;
+  height: 113px;
+  overflow: hidden; */
+/* z-index:999; */
+/* z-index: 99; */
+/* transform: translateX(-35%); */
+/* border:1px solid red; */
+/* bottom:80px; */
+/* bottom:85px; */
+/* } */
+
+.game-body-play-button {
+  width: 260px;
+  height: 110px;
+  /* width: 100%; */
+  position: absolute;
+  left: 48%;
+  z-index: 999;
+  /* background:red; */
+  padding-left: 10px;
+  /* z-index: 99; */
+  transform: translateX(-35%);
+  overflow: hidden;
+  /* border:1px solid red; */
+  bottom: 60px;
+}
+
+.game-body-slider {
+  z-index: 1000;
+  width: 100%;
+  position: absolute;
+  bottom: 38px;
+  overflow: hidden;
+}
+
+.main-game-TryAgain {
+  position: absolute;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 99999;
+}
+
+/* amount animation  */
+/* Parent container trigger for both animations */
+.balanceAnimate--wIMrh {
+  animation: pulse-and-move 0.6s ease forwards;
+}
+
+/* Main value pulse and difference move together */
+@keyframes pulse-and-move {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Pulsate main value */
+  }
+  100% {
+    transform: scale(1); /* Reset main value */
+  }
+}
+
+/* Main balance styling */
+.balanceSum--_ab3Z {
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0.1875rem;
+}
+
+/* Difference value animation (move and fade) */
+.balanceDifference--an2T4 {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  font-size: 0.9em;
+  color: white; /* Optional for visibility */
+  animation: move-up-fade 0.8s ease forwards;
+}
+
+/* Difference value move up and fade out */
+@keyframes move-up-fade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.game-footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  padding: 0px 8px;
+  z-index: 999;
+}
+
+.footer-container {
+  width: 100%;
+  font-size: 12px;
+  color: #adadad;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+@media (max-width: 450px) {
+  .game-body-play-button {
+    left: 40%;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-game-logo img {
+    width: 8rem;
+    height: 4rem;
+  }
+  .game-body-play-button {
+    left: 40%;
+    bottom: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-game-logo img {
+    width: 8rem;
+    height: 4rem;
+  }
+  .game-body-play-button {
+    bottom: 50px;
+  }
+}
+
+.Game-menu-open {
+  width: 100%;
+  height: 100%;
+}
+
+/* .Game-menu-open {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: #fff; 
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%); 
+  transition: transform 0.5s ease-in-out; 
+  z-index: 1099900;
+} */
+
+/* .Game-menu-open.menu-visible {
+  transform: translateY(0); Slide up into view
+} */
+
+.game-wrapper {
+  position: relative;
+  overflow: hidden; /* Ensure no overflow when menu slides up */
+}
+
+.header-icon-item {
+  cursor: pointer;
+}
+
+.animation--Pf2PO {
+  position: fixed;
+  top: 678px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  /* display: none; */
+}
+.animation-top-up {
+  top: 0px;
+  z-index: 1000;
+  transition: clip-path 0.8s cubic-bezier(0.5, 0, 0, 1),
+    transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+
+  /* display: inline-block; */
+}
+.animation--Pf2PO:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #ff003a;
+  will-change: clip-path, transform;
+  transform: translateY(100%);
+  transition: clip-path 0.8s cubic-bezier(0.5, 0, 0, 1),
+    transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 99999;
+  cursor: pointer;
+}
+.animationInner--O9n3F {
+  background-color: #000 !important;
+}
+.animationInner--O9n3F,
+.animation--Pf2PO:before {
+  clip-path: polygon(
+    100% 100%,
+    0% 100%,
+    0% 76.67%,
+    1% 76.65%,
+    2% 76.59%,
+    3% 76.49%,
+    4% 76.35%,
+    5% 76.18%,
+    6% 75.96%,
+    7% 75.71%,
+    8% 75.43%,
+    9% 75.11%,
+    10% 74.76%,
+    11% 74.37%,
+    12% 73.96%,
+    13% 73.51%,
+    14% 73.04%,
+    15% 72.54%,
+    16% 72.02%,
+    17% 71.48%,
+    18% 70.92%,
+    19% 70.35%,
+    20% 69.76%,
+    21% 69.15%,
+    22% 68.54%,
+    23% 67.92%,
+    24% 67.29%,
+    25% 66.67%,
+    26% 66.04%,
+    27% 65.41%,
+    28% 64.79%,
+    29% 64.18%,
+    30% 63.58%,
+    31% 62.99%,
+    32% 62.41%,
+    33% 61.85%,
+    34% 61.31%,
+    35% 60.79%,
+    36% 60.29%,
+    37% 59.82%,
+    38% 59.38%,
+    39% 58.96%,
+    40% 58.58%,
+    41% 58.22%,
+    42% 57.9%,
+    43% 57.62%,
+    44% 57.37%,
+    45% 57.16%,
+    46% 56.98%,
+    47% 56.84%,
+    48% 56.75%,
+    49% 56.69%,
+    50% 56.67%,
+    51% 56.69%,
+    52% 56.75%,
+    53% 56.84%,
+    54% 56.98%,
+    55% 57.16%,
+    56% 57.37%,
+    57% 57.62%,
+    58% 57.9%,
+    59% 58.22%,
+    60% 58.58%,
+    61% 58.96%,
+    62% 59.38%,
+    63% 59.82%,
+    64% 60.29%,
+    65% 60.79%,
+    66% 61.31%,
+    67% 61.85%,
+    68% 62.41%,
+    69% 62.99%,
+    70% 63.58%,
+    71% 64.18%,
+    72% 64.79%,
+    73% 65.41%,
+    74% 66.04%,
+    75% 66.67%,
+    76% 67.29%,
+    77% 67.92%,
+    78% 68.54%,
+    79% 69.15%,
+    80% 69.76%,
+    81% 70.35%,
+    82% 70.92%,
+    83% 71.48%,
+    84% 72.02%,
+    85% 72.54%,
+    86% 73.04%,
+    87% 73.51%,
+    88% 73.96%,
+    89% 74.37%,
+    90% 74.76%,
+    91% 75.11%,
+    92% 75.43%,
+    93% 75.71%,
+    94% 75.96%,
+    95% 76.18%,
+    96% 76.35%,
+    97% 76.49%,
+    98% 76.59%,
+    99% 76.65%,
+    100% 76.67%
+  );
+}
+.animationOpen--lhuEa:before {
+  transition: clip-path 0.8s cubic-bezier(0.3, 0, 0, 1),
+    transform 0.8s cubic-bezier(0.3, 0, 0, 1);
+}
+.animationOpen--lhuEa .animeTranslate02,
+.animeTranslate01:before {
+  transform: translateY(0%);
+  clip-path: polygon(
+    100% 100%,
+    0% 100%,
+    0% 0%,
+    1% 0%,
+    2% 0%,
+    3% 0%,
+    4% 0%,
+    5% 0%,
+    6% 0%,
+    7% 0%,
+    8% 0%,
+    9% 0%,
+    10% 0%,
+    11% 0%,
+    12% 0%,
+    13% 0%,
+    14% 0%,
+    15% 0%,
+    16% 0%,
+    17% 0%,
+    18% 0%,
+    19% 0%,
+    20% 0%,
+    21% 0%,
+    22% 0%,
+    23% 0%,
+    24% 0%,
+    25% 0%,
+    26% 0%,
+    27% 0%,
+    28% 0%,
+    29% 0%,
+    30% 0%,
+    31% 0%,
+    32% 0%,
+    33% 0%,
+    34% 0%,
+    35% 0%,
+    36% 0%,
+    37% 0%,
+    38% 0%,
+    39% 0%,
+    40% 0%,
+    41% 0%,
+    42% 0%,
+    43% 0%,
+    44% 0%,
+    45% 0%,
+    46% 0%,
+    47% 0%,
+    48% 0%,
+    49% 0%,
+    50% 0%,
+    51% 0%,
+    52% 0%,
+    53% 0%,
+    54% 0%,
+    55% 0%,
+    56% 0%,
+    57% 0%,
+    58% 0%,
+    59% 0%,
+    60% 0%,
+    61% 0%,
+    62% 0%,
+    63% 0%,
+    64% 0%,
+    65% 0%,
+    66% 0%,
+    67% 0%,
+    68% 0%,
+    69% 0%,
+    70% 0%,
+    71% 0%,
+    72% 0%,
+    73% 0%,
+    74% 0%,
+    75% 0%,
+    76% 0%,
+    77% 0%,
+    78% 0%,
+    79% 0%,
+    80% 0%,
+    81% 0%,
+    82% 0%,
+    83% 0%,
+    84% 0%,
+    85% 0%,
+    86% 0%,
+    87% 0%,
+    88% 0%,
+    89% 0%,
+    90% 0%,
+    91% 0%,
+    92% 0%,
+    93% 0%,
+    94% 0%,
+    95% 0%,
+    96% 0%,
+    97% 0%,
+    98% 0%,
+    99% 0%,
+    100% 0%
+  );
+}
+.animationOpen--lhuEa .animeTranslate04,
+.animeTranslate03:before {
+  transform: translateY(100%);
+  clip-path: polygon(
+    100% 100%,
+    0% 100%,
+    0% 76.67%,
+    1% 76.65%,
+    2% 76.59%,
+    3% 76.49%,
+    4% 76.35%,
+    5% 76.18%,
+    6% 75.96%,
+    7% 75.71%,
+    8% 75.43%,
+    9% 75.11%,
+    10% 74.76%,
+    11% 74.37%,
+    12% 73.96%,
+    13% 73.51%,
+    14% 73.04%,
+    15% 72.54%,
+    16% 72.02%,
+    17% 71.48%,
+    18% 70.92%,
+    19% 70.35%,
+    20% 69.76%,
+    21% 69.15%,
+    22% 68.54%,
+    23% 67.92%,
+    24% 67.29%,
+    25% 66.67%,
+    26% 66.04%,
+    27% 65.41%,
+    28% 64.79%,
+    29% 64.18%,
+    30% 63.58%,
+    31% 62.99%,
+    32% 62.41%,
+    33% 61.85%,
+    34% 61.31%,
+    35% 60.79%,
+    36% 60.29%,
+    37% 59.82%,
+    38% 59.38%,
+    39% 58.96%,
+    40% 58.58%,
+    41% 58.22%,
+    42% 57.9%,
+    43% 57.62%,
+    44% 57.37%,
+    45% 57.16%,
+    46% 56.98%,
+    47% 56.84%,
+    48% 56.75%,
+    49% 56.69%,
+    50% 56.67%,
+    51% 56.69%,
+    52% 56.75%,
+    53% 56.84%,
+    54% 56.98%,
+    55% 57.16%,
+    56% 57.37%,
+    57% 57.62%,
+    58% 57.9%,
+    59% 58.22%,
+    60% 58.58%,
+    61% 58.96%,
+    62% 59.38%,
+    63% 59.82%,
+    64% 60.29%,
+    65% 60.79%,
+    66% 61.31%,
+    67% 61.85%,
+    68% 62.41%,
+    69% 62.99%,
+    70% 63.58%,
+    71% 64.18%,
+    72% 64.79%,
+    73% 65.41%,
+    74% 66.04%,
+    75% 66.67%,
+    76% 67.29%,
+    77% 67.92%,
+    78% 68.54%,
+    79% 69.15%,
+    80% 69.76%,
+    81% 70.35%,
+    82% 70.92%,
+    83% 71.48%,
+    84% 72.02%,
+    85% 72.54%,
+    86% 73.04%,
+    87% 73.51%,
+    88% 73.96%,
+    89% 74.37%,
+    90% 74.76%,
+    91% 75.11%,
+    92% 75.43%,
+    93% 75.71%,
+    94% 75.96%,
+    95% 76.18%,
+    96% 76.35%,
+    97% 76.49%,
+    98% 76.59%,
+    99% 76.65%,
+    100% 76.67%
+  );
+}
+
+.animationInner--O9n3F {
+  width: 100%;
+  height: 100%;
+  will-change: clip-path, transform;
+  transform: translateY(100%);
+  transition: clip-path 0.8s cubic-bezier(0.4, 0, 0, 1),
+    transform 0.9s cubic-bezier(0.4, 0, 0, 1);
+}
+.tmp--Kw11C {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.tmpInner--Ya0As {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-image: url("../MenuImages/Dots.svg");
+}
+
+/* .animation--Pf2PO.animationClose--lhuEa:before {
+  transform: translateY(100%);
+  clip-path: polygon(100% 100%, 0% 100%, 0% 76.67%, 1% 76.65%, 2% 76.59%, 3% 76.49%, 4% 76.35%, 5% 76.18%, 6% 75.96%, 7% 75.71%, 8% 75.43%, 9% 75.11%, 10% 74.76%, 11% 74.37%, 12% 73.96%, 13% 73.51%, 14% 73.04%, 15% 72.54%, 16% 72.02%, 17% 71.48%, 18% 70.92%, 19% 70.35%, 20% 69.76%, 21% 69.15%, 22% 68.54%, 23% 67.92%, 24% 67.29%, 25% 66.67%, 26% 66.04%, 27% 65.41%, 28% 64.79%, 29% 64.18%, 30% 63.58%, 31% 62.99%, 32% 62.41%, 33% 61.85%, 34% 61.31%, 35% 60.79%, 36% 60.29%, 37% 59.82%, 38% 59.38%, 39% 58.96%, 40% 58.58%, 41% 58.22%, 42% 57.9%, 43% 57.62%, 44% 57.37%, 45% 57.16%, 46% 56.98%, 47% 56.84%, 48% 56.75%, 49% 56.69%, 50% 56.67%);
+} */
+
+.Shadow_grid {
+  width: 100%;
+  height: 6.25rem;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 10, 13, 0.4) 0%,
+    rgba(255, 0, 0, 0) 100%
+  );
+  position: absolute;
+  bottom: 0px;
+  z-index: 99;
+}
+.Shadow_grid01 {
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(
+    rgba(34, 34, 34, 0.5) 0%,
+    rgba(34, 34, 34, 0) 100%
+  );
+  position: absolute;
+  top: 0px;
+  z-index: 99;
+}
+
+@media (min-width: 1200px) and (max-width: 1284px) {
+  .game-body-play-button {
+    padding: 10px;
+    width: 265px;
+    left: 46%;
+    bottom: 48px;
+    overflow: hidden;
+  }
+
+  .game-body-slider {
+    bottom: 25px;
+  }
+
+  .main-game-WiningAmount {
+    /* width: 14.5rem;
+  height: 7.25rem; */
+    position: absolute;
+    top: -43px;
+    left: 0;
+    width: 100%;
+    /* z-index: 99999; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 420px) {
+  .main-game-WiningAmount {
+    top: 25px !important;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .game-body-play-button {
+    width: 500px;
+    height: 202px;
+    left: 46%;
+    bottom: 85px;
+  }
+  .game-body-slider {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  .game-body-play-button {
+    scale: 2;
+    bottom: 190px;
+    left: 55%;
+  }
+  .main-game-logo {
+    scale: 2;
+    top: 120px;
+  }
+  .game-body {
+    scale: 2;
+  }
+  .main-game-notifysleact {
+    scale: 2;
+    top: 120px;
+  }
+  .game-body-slider {
+    scale: 2;
+    bottom: 100px;
+  }
+  .main-game-WiningAmount {
+    scale: 1.7;
+  }
+  .main-game-TryAgain {
+    top: 45%;
+  }
+}
+@media screen and (min-width: 1500px) and (max-width: 1600px) {
+  .main-game-logo {
+    scale: 0.8;
+  }
+  .game-body-play-button {
+    scale: 0.7;
+    left: 40%;
+    bottom: 40px;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 375px) {
+    .game-body-play-button {
+      bottom: 25px;
+    }
+    .main-game-WiningAmount {
+      scale: 0.85;
+    }
+  }
+}
+
+@media (max-width:430px){
+  .gameMain{
+    padding:40px;
+    flex-direction:column;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .betContainer{
+    order:1;
+  }
+}

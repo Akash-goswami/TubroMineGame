@@ -1,0 +1,40 @@
+image: node:18.20.4
+
+stages:
+  - build
+  - deploy 
+
+variables:
+     VITE_BETS_URL: $VITE_BETS_URL
+     VITE_SOCKET_URL: $VITE_SOCKET_URL
+     VITE_EXIT_GAME_URL: $VITE_EXIT_GAME_URL
+
+build:
+  stage: build
+  script:
+#    - npm set registry http://52.56.79.21:4873/
+    - apt-get update && apt-get install -y awscli  # Install AWS CLI
+    - npm install
+    - npm run build
+  artifacts:
+     paths:
+       - dist/
+       - node_modules/
+       - package-lock.json
+     expire_in: 1 hour
+
+
+deploy:
+  stage: deploy
+  script:
+    - apt-get update && apt-get install -y awscli
+    #- aws s3 sync ./ s3://$S3_BUCKET --region $AWS_DEFAULT_REGION
+    #- aws s3 cp dist/ s3://$S3_BUCKET/ --recursive
+    - aws s3 sync dist/ s3://$S3_BUCKET/ --region $AWS_DEFAULT_REGION
+    - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
+ #   - aws s3 rm s3://$S3_BUCKET/index.html
+ #   - aws s3 cp build/ s3://$S3_BUCKET/ --recursive
+
+
+  only:
+    - development

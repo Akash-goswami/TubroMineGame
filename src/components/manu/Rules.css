@@ -1,0 +1,317 @@
+.Rules-container {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* flex-wrap: wrap; */
+  background: #000;
+  overflow-x: hidden;
+  position: relative;
+  background-image: url(../MenuImages/RulesBackGround.svg),
+    url(../MenuImages/RulesBackGround01.svg);
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* width: 960px; */
+}
+.rules-cross {
+  cursor: pointer;
+}
+.Rules-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 20px 24px 20px;
+  font-size: 24px;
+  /* width: 100%; */
+  transform: translate(0, -10px);
+  opacity: 0;
+  animation: fadeInItem 0.6s calc(0s + 0.2s) forwards;
+}
+
+.Rules-container-body {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  transform: translate(0, -10px);
+  opacity: 0;
+  animation: fadeInItem 1s calc(0s + 0.2s) forwards;
+  /* padding: 0px 200px; */
+  /* background-color: red; */
+  /* width: 800px; */
+}
+@keyframes fadeInItem {
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+.Rules-container-body-box01 {
+  width: 15%;
+  margin-top: -33px;
+  /* width: 300px; */
+  font-size: 16px;
+  z-index: 1;
+}
+.Rules-container-body-box01 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.Rules-container-body-box01 ul li {
+  list-style: none;
+  width: 165px;
+  white-space: Initially;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #dddddd;
+  font-weight: 600;
+  box-shadow: 2px 2px 0px -1px #000, 2px 2px 0px 0px #fff;
+  /* text-align: center; */
+}
+.rule-links {
+  text-decoration: none;
+  color: white;
+}
+.Rules-container-body-box01 ul li:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.Rules-container-body-box02 {
+  max-width: 600px;
+  max-height: 640px;
+  scroll-behavior: smooth;
+  margin-top: 29px;
+  font-size: 1rem;
+  overflow-y: scroll;
+  scrollbar-width: 10px;
+  padding: 0px 40px 30px 0px;
+}
+
+.Rules-container-body-box02::before {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  z-index: 1;
+  opacity: 1;
+}
+.Rules-container-body-box02::after {
+  opacity: 0.5;
+  bottom: 0px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+.Rules-container-body-box02::before,
+.Rules-container-body-box02::after {
+  content: "";
+  position: absolute;
+  left: 34%;
+  right: 0;
+  max-width: 600px;
+  height: 6.25rem;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  will-change: opacity;
+}
+.how-to-Play {
+  padding: 0px 10px 10px 10px;
+}
+.how-to-Play h2,
+.Game_Details h2,
+.Settings h2,
+.Disconnection_Policy h2,
+.Version h2 {
+  z-index: 5;
+  position: relative;
+}
+.how-to-Play ul {
+  padding: 10px 0px 10px 30px;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.how-to-Play p {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.Game_Details {
+  margin-top: 40px;
+}
+.Game_Details h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+.Game_Details h6 {
+  font-size: 16px;
+  color: white;
+  margin: 10px 0px;
+}
+.Game_Details p {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.Settings {
+  margin-top: 40px;
+}
+.Settings h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+.Settings ul {
+  padding: 10px 0px 10px 30px;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.Settings p {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.Disconnection_Policy {
+  margin-top: 40px;
+}
+.Disconnection_Policy h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+.Disconnection_Policy p {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.Disconnection_Policy ul {
+  padding: 10px 0px 10px 30px;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.Version {
+  margin-top: 40px;
+}
+.Version h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+.Version p {
+  font-size: 14px;
+  color: #c0c0c0;
+}
+.footer-container {
+  display: flex;
+  font-size: 10px;
+  color: #ffffff80;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 19px 0px 0px;
+  position: absolute;
+  bottom: 0;
+}
+
+/* responsiv code  */
+@media (max-width: 1300px) {
+  .Rules-container-body-box02 {
+    height: 370px;
+  }
+}
+@media (min-width: 1300px) {
+  .Rules-container-body-box02::before,
+  .Rules-container-body-box02::after {
+    left: 39%;
+  }
+  .Rules-container-body-box02::before {
+    top: 0px;
+  }
+}
+
+@media (max-width: 868px) {
+  .Rules-container-body-box02::before {
+    opacity: 0;
+  }
+  .Rules-container-body-box02::after {
+    opacity: 0;
+  }
+  .Rules-container-body {
+    flex-direction: column;
+  }
+  .Rules-container-body-box01 {
+    width: 100%;
+  }
+  .Rules-container-body-box01 ul {
+    flex-direction: row;
+    padding: 0px 12px;
+  }
+  .Rules-container-body-box01 ul li {
+    width: 100%;
+  }
+  .Rules-container-body-box02 {
+    padding: 0px 12px;
+    height: 100vh;
+  }
+}
+@media (max-width: 375px) {
+  .menu-container {
+    height: 90%;
+  }
+}
+@media (max-width: 428px) {
+  .menu-container {
+    height: 72%;
+  }
+  .Rules-container {
+    height: 100vh;
+  }
+  .Rules-container-body {
+    overflow-y: hidden;
+  }
+  .Rules-container-body-box01 ul li {
+    padding: 8px 5px;
+    width: 180px;
+    scrollbar-width: none;
+    font-size: 18px;
+    text-align: center;
+  }
+  .Rules-container-body-box01 ul {
+    overflow-x: scroll;
+    scrollbar-width: none;
+  }
+  .Rules-container-body-box02 {
+    height: 70%;
+  }
+}
+
+@media (max-width: 320px) {
+  .menu-container {
+    height: 80%;
+  }
+  .Rules-container-body-box02 {
+    height: 280px;
+  }
+  .Rules-container-body {
+    gap: 0px;
+  }
+  .Rules-container-body-box01 ul li {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+}
+
+.Rules-container-body-box02::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px #F5F5F5; */
+  border-radius: 10px;
+  /* background-color: #F5F5F5; */
+  background-color: #101217;
+}
+
+.Rules-container-body-box02::-webkit-scrollbar {
+  width: 5.8px;
+  border-radius: 10px;
+  background-color: #101217;
+}
+
+.Rules-container-body-box02::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* -webkit-box-shadow: inset 0 0 6px #F5F5F5; */
+  background-color: #eeeeee;
+}
+@media screen and (min-width: 1536px) {
+  .Rules-container-body-box02 {
+    height: 478px;
+  }
+}

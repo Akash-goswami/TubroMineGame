@@ -1,0 +1,124 @@
+.bet-amount {
+  position: relative;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20rem;
+  height: 1.5rem;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.bet-amount__btn {
+  z-index: 1;
+  font: inherit;
+  border: none;
+  background: transparent;
+  /* cursor: pointer; */
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bet-amount__inner {
+  height: 1.5rem;
+  width: 17rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 15px;
+}
+
+.bet-amount__inner-slider {
+  display: flex;
+  gap: 1.9rem;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.bet-amount__item {
+  flex: 0 0 3.75rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  scale: 0.8;
+  font-size: 1.08rem;
+  color: #bdc9c8;
+  font-weight: 900;
+  /* width: 100px;
+  padding: 10px; */
+  padding-left: 10px;
+}
+
+.bet-amount__item._active div {
+  color: #0be254;
+  font-weight: 900;
+  font-size: 1rem;
+  scale: 1.5;
+}
+.arrow-icon {
+  font-size: 4rem;
+}
+
+/* @media screen and (min-width: 1300px) {
+  .bet-amount {
+    justify-content: space-between;
+    width: 530px;
+    height: 70px;
+    top: 31px;
+    left: 52%;
+  }
+  .bet-amount__inner {
+    height: 100%;
+    width: 23rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .bet-amount__inner-slider {
+    gap: 2.6rem;
+    height: 100%;
+  }
+  .bet-amount__item {
+    flex: 0 0 3.75rem;
+    text-align: center;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    font-style: italic;
+    scale: 0.8;
+    font-size: 33px;
+    color: #bdc9c8;
+    font-weight: 900;
+    padding-left: 10px;
+  }
+  ._active div {
+    color: #0be254;
+    font-weight: 900;
+    font-size: 30px !important;
+    scale: 1.5;
+  }
+} */
+
+@media screen and (min-width: 1300px) {
+  .bet-amount {
+    justify-content: space-between;
+    left: 0px;
+    transform: translateX(0);
+    width: 35rem;
+  }
+  .bet-amount__inner {
+    scale: 1.5;
+    margin-left: 50px;
+  }
+  .bet-amount__btn img {
+    scale: 1.7;
+  }
+}

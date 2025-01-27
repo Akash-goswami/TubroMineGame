@@ -1,0 +1,246 @@
+.win-pop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  /* opacity: 1; */
+  /* pointer-events: auto; */
+  transition: opacity 0.65s;
+  background-image: radial-gradient(
+    84.28% 95.56% at 50% 50%,
+    #07121f 9.5%,
+    rgba(7, 18, 31, 0) 100%
+  );
+}
+
+.win-pop-wrapper {
+  z-index: 1;
+  position: relative;
+  display: grid;
+  align-content: flex-start;
+  opacity: 0;
+  transform: scale3d(0.3, 0.3, 0.3);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.5s ease-in-out;
+}
+
+.win-pop-wrapper-animation {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.win-pop-wrapper::before {
+  content: "";
+  width: 33.75rem;
+  height: 33.75rem;
+  scale: 1.3;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  /* background-color: red;  */
+  animation: spin 20s linear infinite;
+}
+.win-pop-wrapper-blue::before {
+  background-image: url("../MenuImages/WinPop360One.svg");
+  background-size: cover;
+}
+.win-pop-wrapper-green::before {
+  background-image: url("../MenuImages/WinPop360Two.svg");
+  background-size: cover;
+}
+.win-pop-wrapper-yellow::before {
+  background-image: url("../MenuImages/WinPop360Three.svg");
+  background-size: cover;
+}
+.win-pop-wrapper-purple::before {
+  background-image: url("../MenuImages/WinPop360Four.svg");
+  background-size: cover;
+}
+@media (min-width: 1000px) and (max-width: 1124px) {
+  .win-pop-wrapper::before {
+    scale: 1.25;
+  }
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+  .win-pop-wrapper::before {
+    scale: 0.8;
+  }
+}
+@media (max-width: 700px) {
+  .win-pop-wrapper::before {
+    scale: 1;
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.win-pop-info {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22.5rem;
+  height: 11rem;
+  display: grid;
+  align-content: flex-start;
+  gap: 0.125rem;
+  padding-top: 3.375rem;
+  text-align: center;
+  font-style: italic;
+  font-weight: 900;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.win-pop-info-blue {
+  background-image: url(../MenuImages/WinPopBanerOne.webp);
+}
+.win-pop-info-green {
+  background-image: url(../MenuImages/WinPopBanerTwo.svg);
+}
+.win-pop-info-yellow {
+  background-image: url(../MenuImages/WinPopBanerThree.svg);
+}
+.win-pop-info-purple {
+  background-image: url(../MenuImages/WinPopBanerFour.svg);
+}
+
+.win-pop-info-text {
+  z-index: 1;
+  position: absolute;
+  top: 1.875rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 2.25rem;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-text-stroke: 0.1875rem #14193a;
+}
+
+.win-pop-info-text::before {
+  content: attr(data-winamount);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  color: #14193a;
+  text-shadow: 0.25rem 0.3125rem 0 #14193a;
+  -webkit-text-fill-color: #14193a;
+}
+.win-pop-info-text::after {
+  -webkit-text-fill-color: #fed821;
+}
+.popup__text-clip {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    188.41deg,
+    #fffa2c 8.15%,
+    #fed821 29.49%,
+    #fd6d11 84.28%
+  );
+  background-clip: text;
+  text-fill-color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+}
+
+.popup__coef {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-shadow: 0.125rem 0.125rem 0 #f5e6ff;
+  color: #006685;
+}
+.popup__winamount {
+  position: relative;
+  font-size: 2.25rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.125rem #14193a;
+  color: #08b1e4;
+}
+.popup__winamount::before,
+.popup__winamount::after {
+  content: attr(data-winamount);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-text-stroke: 0;
+}
+.popup__winamount::before {
+  z-index: -1;
+  color: #f5e6ff;
+  text-shadow: 0.1875rem 0.1875rem 0 #f5e6ff;
+  -webkit-text-fill-color: #f5e6ff;
+}
+.win-pop-wrapper::after {
+  width: 19.375rem;
+  height: 19.375rem;
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(161, 187, 194, 0.4) 30%,
+    rgba(11, 71, 58, 0) 92%
+  );
+}
+
+.win-pop-Trofi-image {
+  position: absolute;
+  top: 23%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 1300px) {
+  .win-pop-wrapper::before {
+    width: 42.75rem;
+    height: 42.75rem;
+  }
+  .win-pop-info {
+    scale: 1.7;
+    left: 68%;
+    top: 55%;
+  }
+  .greenTop {
+    top: 18% !important;
+  }
+  .yellowTop {
+    top: 16% !important;
+  }
+  .purpleTop {
+    top: 18.8% !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  .win-pop-wrapper::before {
+    width: 60.75rem;
+    height: 60.75rem;
+  }
+  .win-pop-info {
+    scale: 1.9;
+    left: 68%;
+    top: 55%;
+  }
+}

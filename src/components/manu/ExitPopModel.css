@@ -1,0 +1,112 @@
+.exit--GUmOl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex
+;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(4px);
+}
+.exitInner--G5sE7 {
+    width: 100%;
+    max-width: min(427px, 90%);
+    padding: 32px 40px;
+    display: flex
+;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, .9);
+    box-shadow: 4px 4px 0px 0px #fff;
+    opacity: 0;
+    transform: scale(0.4);
+    transition: 0.2s all ease-in-out;
+    will-change: opacity, transform;
+}
+.exitOpen--oJg6y .exitInner--G5sE7 {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.exitTitle--AIhOm {
+    width: 100%;
+    color: #ff003a;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    margin-bottom: 24px;
+}
+
+.exitDescription--esCFf {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 24px;
+}
+.exitButtons--grTQR {
+    width: 100%;
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+/* .primaryButtonRed--HgS0x {
+    box-shadow: 4px 4px 0px 0px #ff003a;
+} */
+.primaryButton--vfjEL {
+    display: flex
+;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 32px;
+    border-radius: 4px;
+    border: 2px solid #000;
+    background: #fff;
+    box-shadow: 4px 4px 0px 0px #000;
+    box-shadow: 4px 4px 0px 0px #ff003a;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    cursor:pointer;
+}
+.secondaryButton--F1n7f {
+    display: flex
+;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 32px;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    background: #000;
+    box-shadow: 4px 4px 0px -2px #000, 4px 4px 0px 0px #fff;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    cursor: pointer;
+}

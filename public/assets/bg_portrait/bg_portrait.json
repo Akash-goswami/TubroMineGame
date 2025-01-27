@@ -1,0 +1,181 @@
+{
+  "skeleton": {
+    "hash": "hCO92vF7+9A",
+    "spine": "4.1.24",
+    "x": -1.35,
+    "y": -1971.81,
+    "width": 1798.35,
+    "height": 2002,
+    "images": "../images_big/",
+    "audio": "E:/!!!_GETTA_RESOURCES_!!!/!!!!_TURBO_GAMES/GYM_game/BG"
+  },
+  "bones": [
+    { "name": "root" },
+    {
+      "name": "palm2_main",
+      "parent": "root",
+      "x": 549.71,
+      "y": -629.46,
+      "color": "000000ff"
+    },
+    {
+      "name": "palm3_main",
+      "parent": "root",
+      "x": 1356.55,
+      "y": -608.62,
+      "color": "0000ffff"
+    },
+    {
+      "name": "palm3_main2",
+      "parent": "root",
+      "x": 1559.1,
+      "y": -668.44,
+      "color": "fffc00ff"
+    }
+  ],
+  "slots": [
+    { "name": "vertical_bg", "bone": "root", "attachment": "vertical_bg" },
+    { "name": "palm2", "bone": "palm2_main", "attachment": "palm2" },
+    { "name": "palm3", "bone": "palm3_main", "attachment": "palm3" },
+    { "name": "palm4", "bone": "palm3_main2", "attachment": "palm4" },
+    { "name": "dots", "bone": "root", "attachment": "dots" }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "dots": {
+          "dots": {
+            "x": 540.15,
+            "y": -970.81,
+            "rotation": 90,
+            "width": 2002,
+            "height": 1083
+          }
+        },
+        "palm2": {
+          "palm2": {
+            "type": "mesh",
+            "uvs": [0, 1.0e-5, 1, 0, 1, 0.99999, 1.0e-5, 0.99999],
+            "triangles": [2, 3, 0, 2, 0, 1],
+            "vertices": [
+              -190.71, 630.46, 313.29, 630.46, 313.29, -0.53, -190.7, -0.53
+            ],
+            "hull": 4,
+            "edges": [4, 6, 0, 2, 2, 4, 6, 0],
+            "width": 504,
+            "height": 631
+          }
+        },
+        "palm3": {
+          "palm3": {
+            "type": "mesh",
+            "uvs": [1, 1.0e-5, 1, 1, 0, 1, 0, 1.0e-5],
+            "triangles": [3, 0, 1, 2, 3, 1],
+            "vertices": [
+              28.99, 412.07, 28.43, -1.39, -278.57, -2.23, -278.21, 411.06
+            ],
+            "hull": 4,
+            "edges": [2, 4, 0, 2, 4, 6, 6, 0],
+            "width": 306,
+            "height": 413
+          }
+        },
+        "palm4": {
+          "palm4": {
+            "type": "mesh",
+            "uvs": [1, 2.3e-4, 1, 1, 1.0e-5, 1, 0, 0],
+            "triangles": [0, 2, 3, 1, 2, 0],
+            "vertices": [
+              237.9, 635.29, 237.9, -2.56, -203.1, -2.56, -203.1, 635.44
+            ],
+            "hull": 4,
+            "edges": [6, 0, 0, 2, 4, 6, 2, 4],
+            "width": 441,
+            "height": 638
+          }
+        },
+        "vertical_bg": {
+          "vertical_bg": { "x": 540, "y": -960, "width": 1080, "height": 1920 }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "animation": {
+      "slots": { "palm4": { "rgba": [{ "color": "ffffffda" }] } },
+      "bones": {
+        "palm3_main2": {
+          "shear": [
+            { "curve": [0.833, 0, 1.667, 6.04, 0.833, 0, 1.667, 5.3] },
+            {
+              "time": 2.5,
+              "x": 6.04,
+              "y": 5.3,
+              "curve": [3.333, 6.04, 4.167, 0, 3.333, 5.3, 4.167, 0]
+            },
+            { "time": 5 }
+          ]
+        },
+        "palm2_main": {
+          "translate": [{ "x": -709.87, "y": -673.42 }],
+          "scale": [{ "x": 1.985, "y": 1.985 }],
+          "shear": [
+            {
+              "y": 1.18,
+              "curve": [0.389, 0, 0.778, 0, 0.389, 0.07, 0.778, -0.98]
+            },
+            {
+              "time": 1.1667,
+              "y": -0.98,
+              "curve": [2, 0, 2.833, 0, 2, -0.98, 2.833, 3.82]
+            },
+            {
+              "time": 3.6667,
+              "y": 3.82,
+              "curve": [4.111, 0, 4.556, 0, 4.111, 3.82, 4.556, 2.46]
+            },
+            { "time": 5, "y": 1.18 }
+          ]
+        },
+        "palm3_main": {
+          "translate": [{ "x": -597, "y": -481.13 }],
+          "shear": [
+            { "curve": [0.833, 0, 1.667, -4.9, 0.833, 0, 1.667, -5.08] },
+            {
+              "time": 2.5,
+              "x": -4.9,
+              "y": -5.08,
+              "curve": [3.333, -4.9, 4.167, 0, 3.333, -5.08, 4.167, 0]
+            },
+            { "time": 5 }
+          ]
+        },
+        "palm3_main2": { "translate": [{ "x": -665.02, "y": -463.5 }] }
+      },
+      "attachments": {
+        "default": {
+          "palm4": {
+            "palm4": {
+              "deform": [
+                {
+                  "offset": 7,
+                  "vertices": [-15.10954],
+                  "curve": [0.389, 0.78, 0.778, 1]
+                },
+                { "time": 1.1667, "curve": [2, 0, 2.833, 1] },
+                {
+                  "time": 3.6667,
+                  "offset": 7,
+                  "vertices": [-33.5271],
+                  "curve": [4.111, 0, 4.556, 0.28]
+                },
+                { "time": 5, "offset": 7, "vertices": [-15.10954] }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
