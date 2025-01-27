@@ -1,10 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { BackGround } from "../components/canvas/background/background";
 import { useSocket } from "./socket/socketProvider";
 
 interface BackgroundContextProps {
-  backgroundClass: BackGround | null;
-  setBackgroundClass: (background: BackGround | null) => void;
   menuOpen: boolean;
   setMenuOpen: (open: boolean) => void;
   playTime: number;
@@ -32,9 +29,6 @@ export const BackgroundClassProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [backgroundClass, setBackgroundClass] = useState<BackGround | null>(
-    null
-  );
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [playTime, setPlayTime] = useState<number>(0); // Timer in seconds
   const [activeComponent, setActiveComponent] = useState<string>("menu"); // Track active component
@@ -103,8 +97,6 @@ export const BackgroundClassProvider = ({
   return (
     <BackgroundContext.Provider
       value={{
-        backgroundClass,
-        setBackgroundClass,
         menuOpen,
         setMenuOpen,
         playTime,

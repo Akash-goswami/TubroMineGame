@@ -207,12 +207,6 @@ nav .header {
     transform: translate(-0.25rem, 0.3125rem);
   }
 }
-.footer-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
 @media (max-width: 768px) {
   .WallateIcon {
     display: inline-block;

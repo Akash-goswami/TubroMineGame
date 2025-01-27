@@ -261,7 +261,7 @@ const Rules: React.FC = () => {
         </div>
       </div>
       <div
-        className="menu-footer-container"
+        className="footer-container"
         style={{
           fontSize: "10px",
           position: "absolute",

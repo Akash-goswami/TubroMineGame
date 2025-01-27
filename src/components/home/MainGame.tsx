@@ -63,9 +63,11 @@ const MainGame: React.FC = () => {
         return "_diamondBlue";
       } else if (index >= 4 && index < 7) {
         return "_diamondGreen";
-      } else if (index >= 7 && index < 20) {
-        return "_diamondGold";
-      } else {
+      }
+      //  else if (index >= 7 && index < 20) {
+      //   return "_diamondGold";
+      // }
+       else {
         return "_bomb"; // Bomb class for all bomb tiles
       }
     }
@@ -93,9 +95,11 @@ const MainGame: React.FC = () => {
         blueDimondSound()
       }else if(index >= 4 && index < 7){
         GreenDimondSound()
-      }else if(index >= 7 && index < 20){
-        GoldDimondSound()
-      }else{
+      }
+      // else if(index >= 7 && index < 20){
+      //   GoldDimondSound()
+      // }
+      else{
         BombBlastSound()
       }
       }, 200);
@@ -125,13 +129,13 @@ const MainGame: React.FC = () => {
     });
   
     // If bomb tile is clicked, clear local storage and disable all tiles
-    if (index >= 20) {
+    if (index >= 7) {
       console.log("Bomb tile clicked, clearing clickedTiles from localStorage...");
       localStorage.setItem("bombClicked", "true"); 
       setIsAllTilesDisabled(true); 
        setClickedTiles((prevTiles) => {
         const updatedTiles = [...prevTiles];
-        for (let i = 20; i < updatedTiles.length; i++) {
+        for (let i = 7; i < updatedTiles.length; i++) {
           updatedTiles[i] = true;
         }
         return updatedTiles;
@@ -208,9 +212,9 @@ const MainGame: React.FC = () => {
                 <div className="game__item-layout2">
                   {
                     !isLoading && 
-                    <>
+                  <>
                     {shouldShowBlastImage(index) ? (
-                    <div className="game__item-layout3">
+                    <div className="game__item-layout3_bomb">
                       <img
                         src={images[currentImageIndex]}
                         alt={`Blast Image ${currentImageIndex + 1}`}

@@ -91,6 +91,7 @@
 .game__item-layout2 {
     width: 100%;
     height: 100%;
+    position: relative;
     border-radius: calc(.75rem - max(.0625rem, 1px));
     background-image: linear-gradient(315deg, #212224 0%, #393b3e 100%);
 }
@@ -154,6 +155,31 @@
     right: 0;
     overflow: hidden;
 }
+  .game__item-layout3_bomb {
+    width: 100%;
+    height: 100%;
+    border-radius: .75rem;
+    display: flex;
+    justify-content: center;
+    aline-items: center;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+  /* .game__item-layout3_bomb {
+    width: 100%;
+    height: 100%;
+    border-radius: .75rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+} */
 ._5x5 .game__item-layout3 img{
     margin-left:100px;
 }
@@ -161,8 +187,8 @@
     content: "";
     width: 100%;
     height: 100%;
-    left: 0%;
-    bottom: 0%;
+    left: -50%;
+    bottom: -50%;
     position: absolute;
     filter: blur(1px);
     background: radial-gradient(circle, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%);

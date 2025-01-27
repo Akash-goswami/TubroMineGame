@@ -1,23 +1,10 @@
-import { RiMenu4Line } from "react-icons/ri";
-import Canvas from "../canvas/canvas";
-// import PlayButton from "../manu/PlayButton";
-import Slider from "../manu/Slider";
-import TogaleGanderChange from "../manu/TogaleGanderChange";
 import "./Home.css";
 import "../manu/Loding.css";
 import Rotate from "/MenuImages/Rotate.webp";
-
 import { useEffect, useState } from "react";
-import { GoUnmute } from "react-icons/go";
-import NotifiySleactGander from "./NotifiySleactGander";
-import TryAgain from "./TryAgain";
-import WiningAmount from "./WiningAmount";
-
 import { useBackground } from "../../context/backgroundClassProvider";
 import { useSocket } from "../../context/socket/socketProvider";
 import ParentComponent from "../manu/ParentComponent";
-import WinPop from "./WinPop";
-import { LiaWalletSolid } from "react-icons/lia";
 import { useSound } from "../../context/soundContext";
 import MainGame from "./MainGame";
 
@@ -26,23 +13,12 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
-  const [isGameRunning, setIsGameRunning] = useState<boolean>(true);
-  const [showNotification, setShowNotification] = useState<boolean>(true);
-  const [currentPlayer, setCurrentPlayer] = useState<string>("");
   const [currentDateTime, setCurrentDateTime] = useState<string>("");
-  const [winingAmountAnimation, setWiningAmountAnimation] =
-    useState<boolean>(true);
-  const [multiplier, setMultiplier] = useState<number>(1.01); // State to store multiplier
-  const [bank, setBank] = useState<number>(10.01);
-  const [wonAmount, setWonAmount] = useState<number>(0);
-  const [activeBetAmount, setActiveBetAmount] = useState(""); // Initialize with the first bet amount
-  const [isWinPopUp, setIsWinPopUp] = useState<boolean>(false);
-  const [tryAgainText, setTryAgainText] = useState(false);
   const [isClickedMute, setIsClickedMute] = useState(false);
   const [isClickedMenu, setIsClickedMenu] = useState(false);
 
   const { menuOpen, setMenuOpen, showComponent } = useBackground();
-  const { userInfo, multiplierArray, isLoading, socket } = useSocket();
+  const { socket } = useSocket();
   const { sound, toggleMute } = useSound();
 
   const handleMenuOpen = () => {

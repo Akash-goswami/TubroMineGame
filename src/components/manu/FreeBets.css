@@ -29,16 +29,6 @@
   justify-content: center;
 }
 
-.footer-container {
-  display: flex;
-  color: #7a7a7a;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0px 25px 0px 0px;
-  position: absolute;
-  bottom: 0;
-}
-
 @media (max-width: 320px) {
   .main-bet-panel h2 {
     height: 0px;

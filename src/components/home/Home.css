@@ -344,15 +344,6 @@ nav {
   z-index: 999;
 }
 
-.footer-container {
-  width: 100%;
-  font-size: 12px;
-  color: #adadad;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
-
 @media (max-width: 450px) {
   .game-body-play-button {
     left: 40%;
