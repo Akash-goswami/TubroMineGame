@@ -5,6 +5,7 @@ import { useBackground } from "../../context/backgroundClassProvider";
 import "./MyBets.css";
 import "./BetInfo.css";
 import { useSocket } from "../../context/socket/socketProvider";
+import { BlastImg01, BlastImg02, BlastImg03, BlastImg04, BlastImg05, BlastImg06, BlastImg07, BlastImg08, BlastImg09, BlastImg10, BlastImg11, BlastImg12, BlastImg13, BlastImg14, BlastImg15 } from "../../Index";
 
 const BetInfo: React.FC = () => {
   const [currentDateTime, setCurrentDateTime] = useState<string>("");
@@ -12,6 +13,16 @@ const BetInfo: React.FC = () => {
   const [intervalId, setIntervalId] = useState(0);
   const [relodHit, setRelodHit] = useState(true);
   const { userInfo } = useSocket();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imgesShow , setImgesShow] = useState(true);
+  const [hasIntervalSet, setHasIntervalSet] = useState(false);
+
+
+  const images: string[] = [
+    BlastImg01, BlastImg02, BlastImg03, BlastImg04, BlastImg05,
+    BlastImg06, BlastImg07, BlastImg08, BlastImg09, BlastImg10,
+    BlastImg11, BlastImg12, BlastImg13, BlastImg14, BlastImg15,
+  ];
 
   const {
     setActiveComponent,
@@ -23,12 +34,32 @@ const BetInfo: React.FC = () => {
     winMultiplayer,
     setWinMultiplayer,
   } = useBackground();
-    const clickRelode = () => {
-      setRelodHit(false);
-      setTimeout(() => {
-        setRelodHit(true);
-      }, 300);
-    }
+  const clickRelode = () => {
+    setRelodHit(false);
+    setTimeout(() => {
+      setRelodHit(true);
+    }, 300);
+  };
+  useEffect(() => {
+    // Set the interval to update the image every 40ms
+    console.log("hello")
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % images.length;
+        
+        // If it's the last image, set imgesShow to false
+        if (newIndex === 0) {
+          setImgesShow(false);
+        }
+  
+        return newIndex;
+      });
+    }, 40);
+  
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
+  
 
 
   useEffect(() => {
@@ -64,42 +95,33 @@ const BetInfo: React.FC = () => {
 
   const currentBet = history[betInfoIndex];
 
-  // const startLoop = () => {
-  //   let index = 0;
-  //   const newIntervalId = setInterval(() => {
-  //     const roundedIndex = Math.round(index * 100) / 100;
-  //     // @ts-ignore
-  //     setRelodeText(roundedIndex.toFixed(2));
-  //     if (roundedIndex >= winMultiplayer) {
-  //       clearInterval(newIntervalId);
-  //       setIntervalId(0);
-  //     }
-
-  //     index += 0.01; // Increment by 0.01
-  //   }, 5);
-
-  //   setIntervalId(newIntervalId);
-  // };
-
-  // useEffect(() => {
-  //   startLoop();
-  //   return () => {
-  //     if (intervalId) clearInterval(intervalId);
-  //   };
-  // }, []);
-
-  // const getBackgroundGradient = (multiplier: number) => {
-  //   if (multiplier <= 2.0) {
-  //     return "linear-gradient(0deg, #0094cc 7.97%, #45deff 65.49%)";
-  //   } else if (multiplier > 2.0 && multiplier <= 10.0) {
-  //     return "linear-gradient(0deg, #00cc4e 7.97%, #45ff7d 65.49%)";
-  //   } else if (multiplier > 10.0 && multiplier <= 20.0) {
-  //     return "linear-gradient(0deg, #ccb800 7.97%, #ffe845 65.49%)";
-  //   } else {
-  //     return "linear-gradient(0deg, #9000cc 7.97%, #d445ff 65.49%)"; // Default case
-  //   }
-  // };
-
+  const gameItems = [
+    { id: 1, type: "" },
+    { id: 2, type: "" },
+    { id: 3, type: "" },
+    { id: 4, type: relodHit ? "_bomb" : "" },
+    { id: 5, type: "" },
+    { id: 6, type: "" },
+    { id: 7, type: relodHit ? "_diamondBlue" : "" },
+    { id: 8, type: "" },
+    { id: 9, type: relodHit ? "_diamondBlue" : "" },
+    { id: 10, type: "" },
+    { id: 11, type: "" },
+    { id: 12, type: relodHit ? "_diamondBlue" : "" },
+    { id: 13, type: relodHit ? "_diamondBlue" : "" },
+    { id: 14, type: "" },
+    { id: 15, type: relodHit ? "_diamondBlue" : "" },
+    { id: 16, type: "" },
+    { id: 17, type: "" },
+    { id: 18, type: relodHit ? "_bomb" : "" },
+    { id: 19, type: "" },
+    { id: 20, type: "" },
+    { id: 21, type: relodHit ? "_bomb" : "" },
+    { id: 22, type: "" },
+    { id: 23, type: "" },
+    { id: 24, type: "" },
+    { id: 25, type: "" },
+  ];
   return (
     <div className="BetsInfo-container">
       <div>
@@ -290,142 +312,37 @@ const BetInfo: React.FC = () => {
                         <div className="render__grid">
                           <div className="game">
                             <div className="game__grid _disabled _5x5">
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
+                              {gameItems.map((item) => (
+                                <div
+                                  key={item.id}
+                                  className={`game__item ${item.type}`}
+                                  style={{
+                                    opacity: item.type === "_bomb" ? "1" : "",
+                                  }}
+                                >
+                                  <div className="game__item-layout1">
+                                    <div className="game__item-layout2"></div>
+                                    {
+                                      imgesShow && 
+                                      <>
+                                      {item.type === "_bomb" && (
+                                      <div className="game__item-layout3_bomb">
+                                      <img
+                                        src={images[currentImageIndex]}
+                                        alt={`Blast Image`}
+                                        className="animated__image"
+                                      />
+                                    </div>
+                                    )}
+                                      </>
+                                    }
+                                    
+                                    {item.type === "_diamondBlue" && (
+                                      <div className="game__item-layout3"></div>
+                                    )}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit ? "_bomb" : ""}`}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                  <div className="game__item-layout4"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_diamondBlue'} `}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_diamondBlue'} `}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_diamondBlue'} `}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_diamondBlue' } `}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_diamondBlue' } `}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_bomb'} `}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                  <div className="game__item-layout4"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className={`game__item ${relodHit && '_bomb'}`}>
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                  <div className="game__item-layout4"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
+                              ))}
                             </div>
                           </div>
                         </div>

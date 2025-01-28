@@ -433,6 +433,9 @@
   gap: 14px;
   justify-content: space-between;
 }
+._bomb .disable_opacity {
+  opacity: 1 !immportant;
+}
 
 @media screen and (min-width: 1300px) {
   .render__info {
