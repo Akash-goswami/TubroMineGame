@@ -4,16 +4,13 @@ import { RxCross2 } from "react-icons/rx";
 import { useBackground } from "../../context/backgroundClassProvider";
 import "./MyBets.css";
 import "./BetInfo.css";
-import { FaRegCopy } from "react-icons/fa";
-import CopyIcon from "/MenuImages/cursor.png";
-import CopyIconColor from "/MenuImages/cursor_copy.png";
 import { useSocket } from "../../context/socket/socketProvider";
 
 const BetInfo: React.FC = () => {
   const [currentDateTime, setCurrentDateTime] = useState<string>("");
   const [relodeText, setRelodeText] = useState<number>(0);
   const [intervalId, setIntervalId] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
+  const [relodHit, setRelodHit] = useState(true);
   const { userInfo } = useSocket();
 
   const {
@@ -26,6 +23,13 @@ const BetInfo: React.FC = () => {
     winMultiplayer,
     setWinMultiplayer,
   } = useBackground();
+    const clickRelode = () => {
+      setRelodHit(false);
+      setTimeout(() => {
+        setRelodHit(true);
+      }, 300);
+    }
+
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -60,48 +64,42 @@ const BetInfo: React.FC = () => {
 
   const currentBet = history[betInfoIndex];
 
-  const startLoop = () => {
-    let index = 0;
-    const newIntervalId = setInterval(() => {
-      const roundedIndex = Math.round(index * 100) / 100;
-      // @ts-ignore
-      setRelodeText(roundedIndex.toFixed(2));
-      if (roundedIndex >= winMultiplayer) {
-        clearInterval(newIntervalId);
-        setIntervalId(0);
-      }
+  // const startLoop = () => {
+  //   let index = 0;
+  //   const newIntervalId = setInterval(() => {
+  //     const roundedIndex = Math.round(index * 100) / 100;
+  //     // @ts-ignore
+  //     setRelodeText(roundedIndex.toFixed(2));
+  //     if (roundedIndex >= winMultiplayer) {
+  //       clearInterval(newIntervalId);
+  //       setIntervalId(0);
+  //     }
 
-      index += 0.01; // Increment by 0.01
-    }, 5);
+  //     index += 0.01; // Increment by 0.01
+  //   }, 5);
 
-    setIntervalId(newIntervalId);
-  };
+  //   setIntervalId(newIntervalId);
+  // };
 
-  useEffect(() => {
-    startLoop();
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, []);
+  // useEffect(() => {
+  //   startLoop();
+  //   return () => {
+  //     if (intervalId) clearInterval(intervalId);
+  //   };
+  // }, []);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(currentBet.matchId);
-    setIsClicked(true); // Change the state to trigger the color change
-    setTimeout(() => {
-      setIsClicked(false); // Reset the state after 200ms
-    }, 200);
-  };
-  const getBackgroundGradient = (multiplier: number) => {
-    if (multiplier <= 2.0) {
-      return "linear-gradient(0deg, #0094cc 7.97%, #45deff 65.49%)";
-    } else if (multiplier > 2.0 && multiplier <= 10.0) {
-      return "linear-gradient(0deg, #00cc4e 7.97%, #45ff7d 65.49%)";
-    } else if (multiplier > 10.0 && multiplier <= 20.0) {
-      return "linear-gradient(0deg, #ccb800 7.97%, #ffe845 65.49%)";
-    } else {
-      return "linear-gradient(0deg, #9000cc 7.97%, #d445ff 65.49%)"; // Default case
-    }
-  };
+  // const getBackgroundGradient = (multiplier: number) => {
+  //   if (multiplier <= 2.0) {
+  //     return "linear-gradient(0deg, #0094cc 7.97%, #45deff 65.49%)";
+  //   } else if (multiplier > 2.0 && multiplier <= 10.0) {
+  //     return "linear-gradient(0deg, #00cc4e 7.97%, #45ff7d 65.49%)";
+  //   } else if (multiplier > 10.0 && multiplier <= 20.0) {
+  //     return "linear-gradient(0deg, #ccb800 7.97%, #ffe845 65.49%)";
+  //   } else {
+  //     return "linear-gradient(0deg, #9000cc 7.97%, #d445ff 65.49%)"; // Default case
+  //   }
+  // };
+
   return (
     <div className="BetsInfo-container">
       <div>
@@ -307,7 +305,7 @@ const BetInfo: React.FC = () => {
                                   <div className="game__item-layout2"></div>
                                 </div>
                               </div>
-                              <div className="game__item _bomb">
+                              <div className={`game__item ${relodHit ? "_bomb" : ""}`}>
                                 <div className="game__item-layout1">
                                   <div className="game__item-layout2"></div>
                                   <div className="game__item-layout3"></div>
@@ -324,7 +322,7 @@ const BetInfo: React.FC = () => {
                                   <div className="game__item-layout2"></div>
                                 </div>
                               </div>
-                              <div className="game__item _diamondBlue">
+                              <div className={`game__item ${relodHit && '_diamondBlue'} `}>
                                 <div className="game__item-layout1">
                                   <div className="game__item-layout2"></div>
                                   <div className="game__item-layout3"></div>
@@ -335,40 +333,7 @@ const BetInfo: React.FC = () => {
                                   <div className="game__item-layout2"></div>
                                 </div>
                               </div>
-                              <div className="game__item _diamondBlue">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item _diamondBlue">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item _diamondBlue">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                  <div className="game__item-layout3"></div>
-                                </div>
-                              </div>
-                              <div className="game__item">
-                                <div className="game__item-layout1">
-                                  <div className="game__item-layout2"></div>
-                                </div>
-                              </div>
-                              <div className="game__item _diamondBlue">
+                              <div className={`game__item ${relodHit && '_diamondBlue'} `}>
                                 <div className="game__item-layout1">
                                   <div className="game__item-layout2"></div>
                                   <div className="game__item-layout3"></div>
@@ -384,7 +349,40 @@ const BetInfo: React.FC = () => {
                                   <div className="game__item-layout2"></div>
                                 </div>
                               </div>
-                              <div className="game__item _bomb">
+                              <div className={`game__item ${relodHit && '_diamondBlue'} `}>
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className={`game__item ${relodHit && '_diamondBlue' } `}>
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className={`game__item ${relodHit && '_diamondBlue' } `}>
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className={`game__item ${relodHit && '_bomb'} `}>
                                 <div className="game__item-layout1">
                                   <div className="game__item-layout2"></div>
                                   <div className="game__item-layout3"></div>
@@ -401,7 +399,7 @@ const BetInfo: React.FC = () => {
                                   <div className="game__item-layout2"></div>
                                 </div>
                               </div>
-                              <div className="game__item _bomb">
+                              <div className={`game__item ${relodHit && '_bomb'}`}>
                                 <div className="game__item-layout1">
                                   <div className="game__item-layout2"></div>
                                   <div className="game__item-layout3"></div>
@@ -435,7 +433,7 @@ const BetInfo: React.FC = () => {
                           <div className="render__crystal"></div>
                           <div className="render__count">22</div>
                         </div>
-                        <div className="render__reload">
+                        <div className="render__reload" onClick={clickRelode}>
                           <i className="fm-iconFont fm-iconFont-ios-reload"></i>
                         </div>
                       </div>
@@ -452,11 +450,11 @@ const BetInfo: React.FC = () => {
       <div
         className="myBets-footer"
         style={{
-          fontSize: "12px",
+          fontSize: "10px",
           padding: "0px 10px",
         }}
       >
-        <div>PumpedX | Version: "1.0.0"</div>
+        <div>TubroMines | Version: "1.0.3"</div>
         <div>
           {`${new Intl.DateTimeFormat("en-GB", {
             day: "2-digit",

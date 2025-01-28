@@ -7,13 +7,13 @@ import { useSocket } from "../../context/socket/socketProvider";
 import ParentComponent from "../manu/ParentComponent";
 import { useSound } from "../../context/soundContext";
 import MainGame from "./MainGame";
+import Footer from "./Footer";
 
 interface HomeProps {
   shouldShowRotateImage: boolean;
 }
 
 const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
-  const [currentDateTime, setCurrentDateTime] = useState<string>("");
   const [isClickedMute, setIsClickedMute] = useState(false);
   const [isClickedMenu, setIsClickedMenu] = useState(false);
 
@@ -29,32 +29,7 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
     }, 200);
   };
 
-  useEffect(() => {
-    const updateDateTime = () => {
-      const now = new Date();
 
-      const formattedDate = new Intl.DateTimeFormat("en-US", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      }).format(now);
-
-      const formattedTime = now.toLocaleTimeString("en-US", {
-        hour12: false,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
-
-      setCurrentDateTime(`${formattedDate} | ${formattedTime}`);
-    };
-
-    updateDateTime();
-
-    const intervalId = setInterval(updateDateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
 
   const IsclickChange = () => {
     setIsClickedMute(true);
@@ -145,26 +120,7 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
                   </nav>
                 </div>
                 <div className="game-footer">
-                  <div className="footer-container">
-                    <div>PumpedX | Version: "1.0.0"</div>
-                    <div>
-                      {`${new Intl.DateTimeFormat("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                      })
-                        .format(new Date())
-                        .replace(
-                          /(\d{2}) (\w{3}) (\d{4})/,
-                          "$1 $2, $3"
-                        )} | ${new Date().toLocaleTimeString("en-US", {
-                        hour12: false,
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        second: "2-digit",
-                      })}`}
-                    </div>
-                  </div>
+                  <Footer/>
                 </div>
               </div>
               <div

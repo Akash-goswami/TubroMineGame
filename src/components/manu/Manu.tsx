@@ -20,6 +20,7 @@ import wishListIconColor from "/MenuImages/wishListIconColor.png";
 import "./Manu.css";
 import { useSocket } from "../../context/socket/socketProvider";
 import ExitPopModel from "./ExitPopModel";
+import Footer from "../home/Footer";
 
 const Manu: React.FC = () => {
   const [currentDateTime, setCurrentDateTime] = useState<string>("");
@@ -157,7 +158,7 @@ const Manu: React.FC = () => {
           <div className="playVersion">
             <div>{/* <span>RNG version:</span> "2.0.0" */}</div>
             <div>
-              <span>Game Version:</span>"1.0.0"
+              <span>Game Version:</span>"1.0.3"
             </div>
           </div>
           <RxCross2 className="close-icon zoomIcon" onClick={handleMenuClose} />
@@ -277,26 +278,7 @@ const Manu: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="footer-container">
-        <div>PumpedX | Version: "1.0.0"</div>
-        <div>
-          {`${new Intl.DateTimeFormat("en-GB", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          })
-            .format(new Date())
-            .replace(
-              /(\d{2}) (\w{3}) (\d{4})/,
-              "$1 $2, $3"
-            )} | ${new Date().toLocaleTimeString("en-US", {
-            hour12: false,
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-          })}`}
-        </div>
-      </div>
+     <Footer/>
     </div>
   );
 };
