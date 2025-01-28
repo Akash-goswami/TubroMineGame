@@ -285,78 +285,159 @@ const BetInfo: React.FC = () => {
                   <div className="game--tFxQP renderItem--duTq7 renderP0--rEDpA">
                     <div className="gameInner--WY6xt">
                       <div className="render">
-                        <div className="render__characters _win">
-                          {currentBet.result === "won" ? (
-                            <img
-                              src="/MenuImages/WinBoyImg.webp"
-                              alt=""
-                              className="imgBoy"
-                            />
-                          ) : (
-                            <img
-                              src="/MenuImages/BoyImg.webp"
-                              alt=""
-                              className="imgBoy"
-                            />
-                          )}
-
-                          {currentBet.result === "won" ? (
-                            <img
-                              src="/MenuImages/WinGirlImg.webp"
-                              alt=""
-                              className="imgGirl"
-                            />
-                          ) : (
-                            <img
-                              src="/MenuImages/GirlImg.webp"
-                              alt=""
-                              className="imgGirl"
-                            />
-                          )}
+                        <div className="render__side">
+                          <div className="render__bomb"></div>
+                          <div className="render__count">3</div>
                         </div>
-                        <div className="render__info">
-                          <div className="coefficient__bank">
-                            {currentBet.result === "won" ? (
-                              <span className="coefficient__bank-text">
-                                Cash Out at:
-                              </span>
-                            ) : (
-                              <span className="coefficient__bank-text">
-                                Crashed at:
-                              </span>
-                            )}
-                          </div>
-                          <div className="coefficient__amount">
-                            <span
-                              // data-coef={currentBet.multiplier}
-                              data-coef={relodeText}
-                              className="coefficient__num"
-                            >
-                              {/* {currentBet.multiplier} */}
-                              {relodeText}
-                            </span>
-                            <span data-x="x" className="coefficient__x _blue">
-                              x
-                              <span
-                                className="coefficient__x-clip"
-                                style={{
-                                  backgroundImage:
-                                    currentBet.result === "won"
-                                      ? getBackgroundGradient(
-                                          currentBet.multiplier
-                                        )
-                                      : "none", // or provide a default background style
-                                }}
-                              >
-                                x
-                              </span>
-                            </span>
+                        <div className="render__grid">
+                          <div className="game">
+                            <div className="game__grid _disabled _5x5">
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _bomb">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                  <div className="game__item-layout4"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _diamondBlue">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _diamondBlue">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _diamondBlue">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _diamondBlue">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _diamondBlue">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _bomb">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                  <div className="game__item-layout4"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item _bomb">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                  <div className="game__item-layout3"></div>
+                                  <div className="game__item-layout4"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                              <div className="game__item">
+                                <div className="game__item-layout1">
+                                  <div className="game__item-layout2"></div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div
-                          className="render__reload"
-                          onClick={startLoop}
-                        ></div>
+                        <div className="render__side">
+                          <div className="render__crystal"></div>
+                          <div className="render__count">22</div>
+                        </div>
+                        <div className="render__reload">
+                          <i className="fm-iconFont fm-iconFont-ios-reload"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
