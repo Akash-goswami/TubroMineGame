@@ -222,7 +222,9 @@ const MainGame: React.FC = () => {
                       />
                     </div>
                   ) : (
-                    clickedIndex === index && <div className="game__item-layout3"></div>
+                    clickedIndex === index && !shouldShowBlastImage(index) && (
+                      <div className="game__item-layout3"></div>
+                    )
                   )}
                     </>
                   }
