@@ -343,6 +343,7 @@ animation: game-item-open .25s linear forwards;
     }
     ._bomb{
         pointer-events: none;
+        opacity:0.3;
     }
     ._bomb:hover .game__item-sum {
         opacity: 0;

@@ -33,7 +33,7 @@ interface MainGameProviderProps {
 
 export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) => {
   const [isGameStarted, setIsGameStarted] = useState<boolean>(true);
-  const [tileValue, setTileValue] = useState<number>(81);
+  const [tileValue, setTileValue] = useState<number>(9);
   const [clickedTiles, setClickedTiles] = useState<boolean[]>(() => {
     const savedTiles = localStorage.getItem("clickedTiles");
     return savedTiles ? JSON.parse(savedTiles) : Array(tileValue).fill(false);
