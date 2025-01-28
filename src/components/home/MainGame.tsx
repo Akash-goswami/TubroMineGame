@@ -73,6 +73,15 @@ const MainGame: React.FC = () => {
     }
     return "";
   };
+  const getTileStyle = (index: number): React.CSSProperties => {
+    if (getTileClass(index) === "_bomb") {
+      return {
+        opacity: index === clickedIndex ? 1 : 0.5, // Highlight the clicked bomb
+      };
+    }
+    return {};
+  };
+  
   const resetGame = () => {
     setTimeout(() => {
       setClickedTiles(Array(tileValue).fill(false)); // Reset clicked tiles
@@ -206,6 +215,7 @@ const MainGame: React.FC = () => {
               className={`game__item ${getTileClass(index)} ${
                 isAllTilesDisabled && !clickedTiles[index] ? "gameOver_disabled" : ""
               }`}
+              style={getTileStyle(index)}
               onClick={() => handleTileClick(index)}
             >
               <div className="game__item-layout1">
