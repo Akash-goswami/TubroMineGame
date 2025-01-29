@@ -38,25 +38,22 @@ const BetInfo: React.FC = () => {
     setRelodHit(false);
     setTimeout(() => {
       setRelodHit(true);
-    }, 300);
+    }, 300);  // THIS TIME TO TILES APPER TIMER
+    setTimeout(() => {
+      setImgesShow(true)
+    }, 600);
   };
   useEffect(() => {
-    // Set the interval to update the image every 40ms
-    console.log("hello")
+    console.log('hello')
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) => {
         const newIndex = (prevIndex + 1) % images.length;
-        
-        // If it's the last image, set imgesShow to false
         if (newIndex === 0) {
           setImgesShow(false);
         }
-  
         return newIndex;
       });
-    }, 40);
-  
-    // Clear the interval when the component is unmounted
+    }, 30);
     return () => clearInterval(intervalId);
   }, []);
   
@@ -90,7 +87,7 @@ const BetInfo: React.FC = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    setActiveComponent("menu");
+    setActiveComponent("menu"); 
   };
 
   const currentBet = history[betInfoIndex];
@@ -318,6 +315,7 @@ const BetInfo: React.FC = () => {
                                   className={`game__item ${item.type}`}
                                   style={{
                                     opacity: item.type === "_bomb" ? "1" : "",
+                                    pointerEvents:'none'
                                   }}
                                 >
                                   <div className="game__item-layout1">
