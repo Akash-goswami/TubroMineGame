@@ -94,14 +94,7 @@
   overflow: hidden;
   position: relative;
 }
-.betContainer{
-  width:327px;
-  height:450px;
-  /* background:red; */
-  border:1px solid gray;
-  border-radius:20px;
-  margin-left: 10px;
-}
+
 
 @media (max-width: 768px) {
   .game {

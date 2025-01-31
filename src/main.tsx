@@ -10,11 +10,11 @@ createRoot(document.getElementById("root")!).render(
   // <StrictMode>
   <SocketContextProvider>
     <MainGameProvider>
-    <BackgroundClassProvider>
-      <SoundProvider>
-        <App />
-      </SoundProvider>
-    </BackgroundClassProvider>
+      <BackgroundClassProvider>
+        <SoundProvider>
+          <App />
+        </SoundProvider>
+      </BackgroundClassProvider>
     </MainGameProvider>
   </SocketContextProvider>
   // </StrictMode>,

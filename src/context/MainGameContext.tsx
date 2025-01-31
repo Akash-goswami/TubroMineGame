@@ -21,6 +21,12 @@ interface MainGameContextType {
   loadingTileIndex: number | null;
   setLoadingTileIndex: React.Dispatch<React.SetStateAction<number | null>>;
   resetGame: () => void;
+  gridSelected: string | null;
+  setGridSelected: React.Dispatch<React.SetStateAction<string| null>>;
+  mines: string;
+  setMines: React.Dispatch<React.SetStateAction<string>>;
+  betAmount: number;
+  setBetAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 // Create the context with a default value
@@ -44,6 +50,11 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [isAllTilesDisabled, setIsAllTilesDisabled] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loadingTileIndex, setLoadingTileIndex] = useState<number | null>(null);
+
+  // betPanel states
+  const [gridSelected, setGridSelected] =useState<string| null>('')
+  const [mines, setMines] = useState("3");
+  const [betAmount, setBetAmount] = useState<number>(10);
 
   // Save clickedTiles to localStorage when clickedTiles state changes
   useEffect(() => {
@@ -85,7 +96,13 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
         setIsLoading,
         loadingTileIndex,
         setLoadingTileIndex,
-        resetGame
+        resetGame,
+        gridSelected,
+        setGridSelected,
+        mines,
+        setMines,
+        betAmount,
+        setBetAmount
       }}
     >
       {children}
