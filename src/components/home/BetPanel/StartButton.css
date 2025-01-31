@@ -1,0 +1,284 @@
+
+
+.cancel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 6.625rem;
+    height: 6.625rem;
+}
+
+.cancel__layout1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,0);
+    box-shadow: 0px 0px 1rem 0px #ff3737;
+}
+
+.cancel__layout2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f3907d 0%, #d63c26 100%);
+    box-shadow: .125rem .125rem .25rem 0px rgba(0,0,0,.5);
+}
+
+.cancel__layout2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f3907d 0%, #d63c26 100%);
+    box-shadow: .125rem .125rem .25rem 0px rgba(0,0,0,.5);
+}
+
+.cancel__layout4 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fff 0%, #ffafaf 100%);
+    -webkit-mask-image: radial-gradient(closest-side, transparent 98%, black 99%, black 100%);
+    mask-image: radial-gradient(closest-side, transparent 98%, black 99%, black 100%);
+}
+
+.cancel__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: .375rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: -0.0625rem -0.0625rem .0625rem rgba(0,0,0,.25);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+}
+
+.place__layout1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,0);
+    box-shadow: 0px 0px 1rem 0px #ff9d29;
+}
+
+.place__layout2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fbc55b 0%, #e8833c 100%);
+    box-shadow: .125rem .125rem .25rem 0px rgba(0,0,0,.5);
+}
+
+.place__layout2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fbc55b 0%, #e8833c 100%);
+    box-shadow: .125rem .125rem .25rem 0px rgba(0,0,0,.5);
+}
+
+.place__layout3 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(136deg, #e37435 14.88%, #ffd361 100%);
+}
+
+.place__layout4 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fff 0%, #ffefc6 100%);
+    -webkit-mask-image: radial-gradient(closest-side, transparent 98%, black 99%, black 100%);
+    mask-image: radial-gradient(closest-side, transparent 98%, black 99%, black 100%);
+}
+
+.place__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: .375rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: -0.0625rem -0.0625rem .0625rem rgba(0,0,0,.25);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+}
+
+.place {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 6.625rem;
+    height: 6.625rem;
+}
+
+.control__button {
+    width: 6.625rem;
+    height: 6.625rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #2b2729;
+    z-index: 10;
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .control__button {
+        position: absolute;
+        bottom: 1.5rem;
+        top: initial;
+        transform: translateX(-50%);
+    }
+}
+
+
+.history__value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.375rem;
+}
+
+.history__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 1.25rem;
+    height: 100%;
+    border-radius: .625rem;
+    border: .0625rem solid #a36131;
+    background-color: #765035;
+    color: #fe7e13;
+    text-align: center;
+    font-size: .75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.history__inner {
+    width: 100%;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 200ms linear;
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .history__item {
+        opacity: .1;
+        width: 8.75rem;
+        min-height: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .history__inner._await .history__item {
+        transform: translateY(-300%);
+    }
+}
+
+.history__inner {
+    width: 100%;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 200ms linear;
+}
+
+.history {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(260deg, transparent 50%, black);
+    mask-image: linear-gradient(260deg, transparent 50%, black);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .history {
+        -webkit-mask-image: none;
+        mask-image: none;
+        -webkit-mask-image: linear-gradient(transparent 1%, black 15%, black 85%, transparent 99%);
+        mask-image: linear-gradient(transparent 1%, black 15%, black 85%, transparent 99%);
+        padding: 0px 1.25rem;
+    }
+}
+
+.control__history {
+    pointer-events: none;
+    position: absolute;
+    left: .125rem;
+    width: 16.25rem;
+    height: 100%;
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .control__history {
+        width: 18.75rem;
+        height: 8.75rem;
+        left: 50%;
+        bottom: .4375rem;
+        transform: translateX(-50%);
+    }
+}
