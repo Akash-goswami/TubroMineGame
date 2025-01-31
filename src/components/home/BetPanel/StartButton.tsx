@@ -1,50 +1,11 @@
 import './StartButton.css';
 import { useMainGameContext } from "../../../context/MainGameContext";
 
-
-interface HistoryItemProps {
-    multiplier: string;
-    amount: string;
-}
-
-
-interface ButtonLayoutProps {
-    className: string;
-    text: string;
-}
-
-import './StartButton.css';
-
-function HistoryItem({ multiplier, amount }: HistoryItemProps) {
-
-    const { gridSelected, mines } = useMainGameContext();
-
-    // console.log('mines', mines, 'gridSelected', gridSelected);
-
-    return (
-        <div className="history__item">
-            <div className="history__content">
-                <div className="history__value">{multiplier}</div>
-                <div className="history__value">{amount}</div>
-            </div>
-        </div>
-    );
-}
-
-function ButtonLayout({ className, text }: ButtonLayoutProps) {
-    return (
-        <div className={className}>
-            <div className={`${className}__layout1`}></div>
-            <div className={`${className}__layout2`}></div>
-            <div className={`${className}__layout3`}></div>
-            <div className={`${className}__layout4`}></div>
-            <div className={`${className}__text`}>{text}</div>
-        </div>
-    );
-}
-
 function StartButton() {
-    const historyData = [
+    
+    const { gridSelected } = useMainGameContext();
+
+    const multiplierData = [
         { multiplier: 'x1.06', amount: '$106' },
         { multiplier: 'x1.18', amount: '$118' },
         { multiplier: 'x1.32', amount: '$132' },
@@ -87,24 +48,56 @@ function StartButton() {
         { multiplier: 'x14.37k', amount: '$10.1k' },
         { multiplier: 'x32.34k', amount: '$10.1k' },
         { multiplier: 'x86.26k', amount: '$10.1k' },
-        { multiplier: 'x301.92k', amount: '$10.1k' }
+        { multiplier: 'x301.92k', amount: '$10.1k' },
     ];
+
+    
+    let numItemsToShow = 0;
+    if (gridSelected === '3x3') {
+        numItemsToShow = 8;
+    } else if (gridSelected === '5x5') {
+        numItemsToShow = 24;
+    } else if (gridSelected === '7x7') {
+        numItemsToShow = 48;
+    } else if (gridSelected === '9x9') {
+        numItemsToShow = multiplierData.length; 
+    }
+
+    
+    const dataToShow = multiplierData.slice(0, numItemsToShow);
 
     return (
         <>
             <div className="control__history">
                 <div className="history">
                     <div className="history__inner _await _43" style={{ transform: "translateY(0%)" }}>
-                        {historyData.map((item, index) => (
-                            <HistoryItem key={index} multiplier={item.multiplier} amount={item.amount} />
+                        {dataToShow.map((entry, index) => (
+                            <div className="history__item" key={index}>
+                                <div className="history__content">
+                                    <div className="history__value">{entry.multiplier}</div>
+                                    <div className="history__value">{entry.amount}</div>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
             </div>
 
             <div className="control__button">
-                <ButtonLayout className="place" text="Start Game" />
-                <ButtonLayout className="cancel" text="Cancel" />
+                <div className="place">
+                    <div className="place__layout1"></div>
+                    <div className="place__layout2"></div>
+                    <div className="place__layout3"></div>
+                    <div className="place__layout4"></div>
+                    <div className="place__text">Start Game</div>
+                </div>
+                <div className="cancel">
+                    <div className="cancel__layout1"></div>
+                    <div className="cancel__layout2"></div>
+                    <div className="cancel__layout3"></div>
+                    <div className="cancel__layout4"></div>
+                    <div className="cancel__text">Cancel</div>
+                </div>
             </div>
         </>
     );
