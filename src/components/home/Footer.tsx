@@ -22,7 +22,6 @@ export default function Footer() {
     
           setCurrentDateTime(`${formattedDate} | ${formattedTime}`);
         };
-    
         updateDateTime();
     
         const intervalId = setInterval(updateDateTime, 1000);

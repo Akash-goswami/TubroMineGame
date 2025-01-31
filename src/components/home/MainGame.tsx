@@ -6,6 +6,7 @@ import { BlastImg01, BlastImg02, BlastImg03,BlastImg04, BlastImg05,
   BlastImg11, BlastImg12, BlastImg13, BlastImg14, BlastImg15, } from "../../Index";
 import { useMainGameContext } from "../../context/MainGameContext";
 import { useSound } from "../../context/soundContext";
+import { FaL } from "react-icons/fa6";
 
 const images: string[] = [
   BlastImg01, BlastImg02, BlastImg03, BlastImg04, BlastImg05,
@@ -14,6 +15,7 @@ const images: string[] = [
 ];
 
 const MainGame: React.FC = () => {
+  const {setAleartPop} = useMainGameContext();
   const {
     isGameStarted,
     tileValue,
@@ -161,7 +163,6 @@ const MainGame: React.FC = () => {
   // Clear bombClicked and reset the game if the user refreshes
   useEffect(() => {
     const bombClicked = localStorage.getItem("bombClicked");
-  
     if (bombClicked) {
       setTimeout(() => {
         localStorage.removeItem("clickedTiles");
@@ -185,6 +186,12 @@ const MainGame: React.FC = () => {
   };
   useEffect(() => {
     const savedTiles = localStorage.getItem("clickedTiles");
+    if(isGameStarted){
+      setAleartPop(true);
+    }
+    setTimeout(() => {
+      setAleartPop(false);
+    }, 3000);
     if (savedTiles) {
       setClickedTiles(JSON.parse(savedTiles));
     }
