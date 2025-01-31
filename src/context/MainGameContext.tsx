@@ -17,7 +17,9 @@ interface MainGameContextType {
   isAllTilesDisabled: boolean;
   setIsAllTilesDisabled: React.Dispatch<React.SetStateAction<boolean>>;
   isLoading: boolean;
+  aleartPop: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setAleartPop: React.Dispatch<React.SetStateAction<boolean>>;
   loadingTileIndex: number | null;
   setLoadingTileIndex: React.Dispatch<React.SetStateAction<number | null>>;
   resetGame: () => void;
@@ -43,6 +45,7 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [isAnimationComplete, setIsAnimationComplete] = useState<boolean>(false);
   const [isAllTilesDisabled, setIsAllTilesDisabled] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [aleartPop, setAleartPop] = useState<boolean>(false);
   const [loadingTileIndex, setLoadingTileIndex] = useState<number | null>(null);
 
   // Save clickedTiles to localStorage when clickedTiles state changes
@@ -85,7 +88,9 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
         setIsLoading,
         loadingTileIndex,
         setLoadingTileIndex,
-        resetGame
+        resetGame,
+        aleartPop,
+        setAleartPop
       }}
     >
       {children}

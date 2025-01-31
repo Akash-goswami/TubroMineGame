@@ -1,0 +1,24 @@
+.layout-alert{
+    width: 300px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 20px;
+    border-radius: 10px;
+    animation: alert 1s ease;
+}
+@keyframes alert {
+    0% {
+        scale: 0;
+    }
+    100% {
+        scale: 1;
+    }
+}
+.alertTitle--rq8nO{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
