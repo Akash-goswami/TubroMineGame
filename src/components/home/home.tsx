@@ -9,6 +9,9 @@ import { useSound } from "../../context/soundContext";
 import MainGame from "./MainGame";
 import Footer from "./Footer";
 
+// betpanel component import
+import BetPanel from './BetPanel/BetPanel'
+
 interface HomeProps {
   shouldShowRotateImage: boolean;
 }
@@ -53,12 +56,12 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
         <img src={Rotate} alt="rotate img" width="100%" />
       ) : (
         <>
-          {!socket?.connected ? (
+          {/* {!socket?.connected ? (
             <div className="loading-container">
               <div className="spinner"></div>
               <div className="loading-text">Connecting...</div>
             </div>
-          ) : (
+          ) : ( */}
             <div className="game-viewport">
               <div className="game-wrapper">
                 <div
@@ -66,7 +69,8 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
                     menuOpen ? "blurred" : ""
                   }`}
                 >
-                  <div className="betContainer">
+                  <div className="bet_section">
+                    <BetPanel/>
                   </div>
                   <MainGame/>
                   <div className="Shadow_grid"></div>
@@ -143,7 +147,7 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
                 </div>
               </div>
             </div>
-          )}
+          {/* )} */}
         </>
       )}
     </>
