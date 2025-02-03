@@ -8,6 +8,8 @@ import ParentComponent from "../manu/ParentComponent";
 import { useSound } from "../../context/soundContext";
 import MainGame from "./MainGame";
 import Footer from "./Footer";
+import AleartPop from "./AleartPop";
+import { useMainGameContext } from "../../context/MainGameContext";
 
 // betpanel component import
 import BetPanel from './BetPanel/BetPanel'
@@ -21,6 +23,7 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
   const [isClickedMenu, setIsClickedMenu] = useState(false);
 
   const { menuOpen, setMenuOpen, showComponent } = useBackground();
+  const {aleartPop} = useMainGameContext();
   const { socket } = useSocket();
   const { sound, toggleMute } = useSound();
 
@@ -73,6 +76,9 @@ const Home: React.FC<HomeProps> = ({ shouldShowRotateImage }) => {
                     <BetPanel/>
                   </div>
                   <MainGame/>
+                  {
+                    aleartPop && <AleartPop/>
+                  }
                   <div className="Shadow_grid"></div>
                   <div className="Shadow_grid01"></div>
                   <nav>

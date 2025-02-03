@@ -17,7 +17,9 @@ interface MainGameContextType {
   isAllTilesDisabled: boolean;
   setIsAllTilesDisabled: React.Dispatch<React.SetStateAction<boolean>>;
   isLoading: boolean;
+  aleartPop: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setAleartPop: React.Dispatch<React.SetStateAction<boolean>>;
   loadingTileIndex: number | null;
   setLoadingTileIndex: React.Dispatch<React.SetStateAction<number | null>>;
   resetGame: () => void;
@@ -27,6 +29,8 @@ interface MainGameContextType {
   setMines: React.Dispatch<React.SetStateAction<string>>;
   betAmount: number;
   setBetAmount: React.Dispatch<React.SetStateAction<number>>;
+  gameStatus: boolean;
+  setGameStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Create the context with a default value
@@ -49,13 +53,26 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [isAnimationComplete, setIsAnimationComplete] = useState<boolean>(false);
   const [isAllTilesDisabled, setIsAllTilesDisabled] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [aleartPop, setAleartPop] = useState<boolean>(false);
   const [loadingTileIndex, setLoadingTileIndex] = useState<number | null>(null);
 
   // betPanel states
   const [gridSelected, setGridSelected] =useState<string| null>('')
   const [mines, setMines] = useState("3");
   const [betAmount, setBetAmount] = useState<number>(10);
-
+  const [gameStatus, setGameStatus] = useState<boolean>(false);
+useEffect(() => {
+  if(gridSelected == "3x3"){
+    setTileValue(9)
+  }else if(gridSelected == "5x5"){
+    setTileValue(25)
+  }else if(gridSelected == "7x7"){
+      setTileValue(49)
+  }
+  else if(gridSelected == "9x9"){
+        setTileValue(81)
+  }
+},[gridSelected])
   // Save clickedTiles to localStorage when clickedTiles state changes
   useEffect(() => {
     localStorage.setItem("clickedTiles", JSON.stringify(clickedTiles));
@@ -97,12 +114,16 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
         loadingTileIndex,
         setLoadingTileIndex,
         resetGame,
+        aleartPop,
+        setAleartPop,
         gridSelected,
         setGridSelected,
         mines,
         setMines,
         betAmount,
-        setBetAmount
+        setBetAmount,
+        gameStatus,
+        setGameStatus
       }}
     >
       {children}
