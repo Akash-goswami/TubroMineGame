@@ -251,6 +251,62 @@ button.startbtn {
     
     100% {
         box-shadow: 0px 0px 1rem 0px #ff9d29;
+}
+
+
+.history__value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.375rem;
+}
+
+.history__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 1.25rem;
+    height: 100%;
+    border-radius: .625rem;
+    border: .0625rem solid #a36131;
+    background-color: #765035;
+    color: #fe7e13;
+    text-align: center;
+    font-size: .75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.history__inner {
+    width: 100%;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 200ms linear;
+}
+.history__item {
+    padding: .0625rem 0;
+    width: 100%;
+    min-height: 1.25rem;
+    opacity: .1;
+    transition: width 200ms linear;
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .history__item {
+        opacity: .1;
+        width: 8.75rem;
+        min-height: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (orientation: landscape) {
+    .history__inner._await .history__item {
+        /* transform: translateY(-300%); */
     }
 }
 

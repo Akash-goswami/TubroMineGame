@@ -55,13 +55,13 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [aleartPop, setAleartPop] = useState<boolean>(false);
   const [loadingTileIndex, setLoadingTileIndex] = useState<number | null>(null);
-
   // betPanel states
   const [gridSelected, setGridSelected] =useState<string| null>('')
   const [mines, setMines] = useState("3");
   const [betAmount, setBetAmount] = useState<number>(10);
   const [gameStatus, setGameStatus] = useState<boolean>(false);
-useEffect(() => {
+
+  useEffect(() => {
   if(gridSelected == "3x3"){
     setTileValue(9)
   }else if(gridSelected == "5x5"){

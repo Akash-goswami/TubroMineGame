@@ -74,6 +74,11 @@ function StartButton() {
                     )}
                 </div>
             </div>
+
+            <div className="control__button">
+                <ButtonLayout className="place" text="Start Game" />
+                {/* <ButtonLayout className="cancel" text="Cancel" /> */}
+            </div>
         </>
     );
 }

@@ -44,7 +44,7 @@ const BetInfo: React.FC = () => {
     }, 600);
   };
   useEffect(() => {
-    console.log('hello')
+    console.log(' THIS IS MY BET_HISTORY hello')
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) => {
         const newIndex = (prevIndex + 1) % images.length;

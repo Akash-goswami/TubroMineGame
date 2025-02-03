@@ -9,6 +9,8 @@ import StartButton from './StartButton';
 import { TiMinus } from "react-icons/ti";
 import { FaPlus } from "react-icons/fa";
 import { CiCircleInfo } from "react-icons/ci";
+import { useSound } from '../../../context/soundContext';
+import { tileClickSound } from '../../../utils/gameSettings';
 
 function BetPanel() {
     const { gridSelected, setGridSelected, mines, setMines, gameStatus } = useMainGameContext();
@@ -91,6 +93,7 @@ function BetPanel() {
     };
 
     const handleGridSelection = (grid: string) => {
+        tileClickSound();
         setGridSelected(grid);
         setMines('1');
     };
