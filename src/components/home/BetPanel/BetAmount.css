@@ -80,3 +80,8 @@
     box-shadow: .1875rem .1875rem .25rem 0px rgba(10, 9, 9, .4),
         .125rem .125rem .375rem 0px rgba(0, 0, 0, .35) inset;
 }
+
+.bet_amountcmn.disabled {
+    opacity: 0.8; 
+    pointer-events: none; 
+}

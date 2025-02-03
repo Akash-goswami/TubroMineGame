@@ -29,6 +29,8 @@ interface MainGameContextType {
   setMines: React.Dispatch<React.SetStateAction<string>>;
   betAmount: number;
   setBetAmount: React.Dispatch<React.SetStateAction<number>>;
+  gameStatus: boolean;
+  setGameStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Create the context with a default value
@@ -57,6 +59,8 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [gridSelected, setGridSelected] =useState<string| null>('')
   const [mines, setMines] = useState("3");
   const [betAmount, setBetAmount] = useState<number>(10);
+  const [gameStatus, setGameStatus] = useState<boolean>(false);
+
   useEffect(() => {
   if(gridSelected == "3x3"){
     setTileValue(9)
@@ -117,7 +121,9 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
         mines,
         setMines,
         betAmount,
-        setBetAmount
+        setBetAmount,
+        gameStatus,
+        setGameStatus
       }}
     >
       {children}
