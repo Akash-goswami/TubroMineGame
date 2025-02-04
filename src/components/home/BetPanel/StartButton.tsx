@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './StartButton.css';
 import { useMainGameContext } from "../../../context/MainGameContext";
- 
+
 function StartButton() {
-        const { gameStatus, setGameStatus } = useMainGameContext();
- 
+    const { gameStatus, setGameStatus, tileClick } = useMainGameContext();
+
     // console.log('gameStatus', gameStatus);
- 
+
     return (
         <>
             <div className="multiplayer-startbtns mixcmn">
@@ -43,35 +43,52 @@ function StartButton() {
                     </div>
                 </div>
                 <div className="start_cancel_cmn">
-                    {!gameStatus ? (
-                        <div className="gamestartbtn">
-                            <div className="place">
-                                <div className="place__layout1"></div>
-                                <div className="place__layout2"></div>
-                                <div className="place__layout3"></div>
-                                <div className="place__layout4"></div>
-                                <div className="place__text">
-                                    <button className='startbtn' onClick={() => setGameStatus(true)}>
-                                        Start Game
-                                    </button>
+                    {!tileClick && (
+                        !gameStatus ? (
+                            <div className="gamestartbtn">
+                                <div className="place">
+                                    <div className="place__layout1"></div>
+                                    <div className="place__layout2"></div>
+                                    <div className="place__layout3"></div>
+                                    <div className="place__layout4"></div>
+                                    <div className="place__text">
+                                        <button className="startbtn" onClick={() => setGameStatus(true)}>
+                                            Start Game
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ) : (
-                        <div className="gamecancelbtn">
-                            <div className="cancel">
-                                <div className="cancel__layout1"></div>
-                                <div className="cancel__layout2"></div>
-                                <div className="cancel__layout3"></div>
-                                <div className="cancel__layout4"></div>
-                                <div className="cancel__text">
-                                    <button className='cancelbtn' onClick={() => setGameStatus(false)}>
-                                        Cancel
-                                    </button>
+                        ) : (
+                            <div className="gamecancelbtn">
+                                <div className="cancel">
+                                    <div className="cancel__layout1"></div>
+                                    <div className="cancel__layout2"></div>
+                                    <div className="cancel__layout3"></div>
+                                    <div className="cancel__layout4"></div>
+                                    <div className="cancel__text">
+                                        <button className="cancelbtn" onClick={() => setGameStatus(false)}>
+                                            Cancel
+                                        </button>
+                                    </div>
                                 </div>
+                            </div>
+                        )
+                    )}
+                    {tileClick && (
+                        <div className="gamecashoutbtn">
+                            <div className="cashout">
+                                <div className="cashout__layout1"></div>
+                                <div className="cashout__layout2"></div>
+                                <div className="cashout__layout3"></div>
+                                <div className="cashout__layout4">
+                                    <div className="cashout__sum">$10.80</div>
+                                </div>
+                                <div className="cashout__layout5"></div>
+                                <div className="cashout__text">Cash Out</div>
                             </div>
                         </div>
                     )}
+
                 </div>
             </div>
         </>

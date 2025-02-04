@@ -17,8 +17,10 @@ interface MainGameContextType {
   isAllTilesDisabled: boolean;
   setIsAllTilesDisabled: React.Dispatch<React.SetStateAction<boolean>>;
   isLoading: boolean;
+  tileClick: boolean;
   aleartPop: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setTileClick: React.Dispatch<React.SetStateAction<boolean>>;
   setAleartPop: React.Dispatch<React.SetStateAction<boolean>>;
   loadingTileIndex: number | null;
   setLoadingTileIndex: React.Dispatch<React.SetStateAction<number | null>>;
@@ -33,10 +35,10 @@ interface MainGameContextType {
   setGameStatus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-// Create the context with a default value
+
 const MainGameContext = createContext<MainGameContextType | undefined>(undefined);
 
-// Create the provider component
+
 interface MainGameProviderProps {
   children: ReactNode;
 }
@@ -53,6 +55,7 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [isAnimationComplete, setIsAnimationComplete] = useState<boolean>(false);
   const [isAllTilesDisabled, setIsAllTilesDisabled] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [tileClick, setTileClick] = useState<boolean>(false);
   const [aleartPop, setAleartPop] = useState<boolean>(false);
   const [loadingTileIndex, setLoadingTileIndex] = useState<number | null>(null);
   // betPanel states
@@ -60,6 +63,8 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   const [mines, setMines] = useState("3");
   const [betAmount, setBetAmount] = useState<number>(10);
   const [gameStatus, setGameStatus] = useState<boolean>(false);
+  console.log("this is my tile click value as true and false ",tileClick);
+  
 
   useEffect(() => {
   if(gridSelected == "3x3"){
@@ -73,23 +78,23 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
         setTileValue(81)
   }
 },[gridSelected])
-  // Save clickedTiles to localStorage when clickedTiles state changes
+
   useEffect(() => {
     localStorage.setItem("clickedTiles", JSON.stringify(clickedTiles));
   }, [clickedTiles]);
   
   const resetGame = () => {
     setTimeout(() => {
-      setClickedTiles(Array(tileValue).fill(false)); // Reset clicked tiles
-      setClickedIndex(null); // Reset clicked index
-      setCurrentImageIndex(0); // Reset animation index
-      setIsAnimationComplete(false); // Reset animation state
-      setIsAllTilesDisabled(false); // Enable all tiles again
-      setIsGameStarted(false); // Reset the game start state
+      setClickedTiles(Array(tileValue).fill(false)); 
+      setClickedIndex(null); 
+      setCurrentImageIndex(0); 
+      setIsAnimationComplete(false); 
+      setIsAllTilesDisabled(false); 
+      setIsGameStarted(false); 
   
-      // Clear local storage during game reset
+      
       localStorage.clear();
-    }, 3000); // 3 seconds delay
+    }, 3000); 
   };
 
   return (
@@ -123,7 +128,9 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
         betAmount,
         setBetAmount,
         gameStatus,
-        setGameStatus
+        setGameStatus,
+        tileClick,
+        setTileClick
       }}
     >
       {children}
@@ -131,7 +138,7 @@ export const MainGameProvider: React.FC<MainGameProviderProps> = ({ children }) 
   );
 };
 
-// Custom hook to use the context in functional components
+
 export const useMainGameContext = (): MainGameContextType => {
   const context = useContext(MainGameContext);
   if (!context) {

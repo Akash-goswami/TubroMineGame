@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./MainGame.css";
-import { tileClickSound ,blueDimondSound ,GreenDimondSound, BombBlastSound, GoldDimondSound } from "../../utils/gameSettings";
-import { BlastImg01, BlastImg02, BlastImg03,BlastImg04, BlastImg05,
+import { tileClickSound, blueDimondSound, GreenDimondSound, BombBlastSound, GoldDimondSound } from "../../utils/gameSettings";
+import {
+  BlastImg01, BlastImg02, BlastImg03, BlastImg04, BlastImg05,
   BlastImg06, BlastImg07, BlastImg08, BlastImg09, BlastImg10,
-  BlastImg11, BlastImg12, BlastImg13, BlastImg14, BlastImg15, } from "../../Index";
+  BlastImg11, BlastImg12, BlastImg13, BlastImg14, BlastImg15,
+} from "../../Index";
 import { useMainGameContext } from "../../context/MainGameContext";
 import { useSound } from "../../context/soundContext";
 import { FaL } from "react-icons/fa6";
@@ -15,9 +17,11 @@ const images: string[] = [
 ];
 
 const MainGame: React.FC = () => {
-  const {setAleartPop} = useMainGameContext();
+  const { setAleartPop } = useMainGameContext();
+  const [isShowPop , setIsShowPop] = useState<Boolean>(false)
   const {
     isGameStarted,
+    gameStatus,
     tileValue,
     clickedTiles,
     setClickedTiles,
@@ -28,7 +32,8 @@ const MainGame: React.FC = () => {
     currentImageIndex, setCurrentImageIndex,
     isAnimationComplete, setIsAnimationComplete,
     isAllTilesDisabled, setIsAllTilesDisabled,
-    loadingTileIndex, setLoadingTileIndex,
+    loadingTileIndex, setLoadingTileIndex, setTileClick,
+    setGameStatus
   } = useMainGameContext();
   const { sound } = useSound();
 
@@ -52,12 +57,19 @@ const MainGame: React.FC = () => {
     };
   }, [clickedIndex]);
 
+  const ShowPopStartGame = () => {
+    console.log("hello i am aleart")
+    setIsShowPop(true)
+    setTimeout(() => {
+      setIsShowPop(false)
+    }, 800);
+  }
 
 
   const getTileClass = (index: number): string => {
 
     if (loadingTileIndex === index) {
-      return "_loading"; // Apply loading class to the clicked tile only
+      return "_loading";
     }
 
     if (clickedTiles[index]) {
@@ -69,8 +81,8 @@ const MainGame: React.FC = () => {
       //  else if (index >= 7 && index < 20) {
       //   return "_diamondGold";
       // }
-       else {
-        return "_bomb"; // Bomb class for all bomb tiles
+      else {
+        return "_bomb";
       }
     }
     return "";
@@ -78,101 +90,104 @@ const MainGame: React.FC = () => {
   const getTileStyle = (index: number): React.CSSProperties => {
     if (getTileClass(index) === "_bomb") {
       return {
-        opacity: index === clickedIndex ? 1 : 0.5, // Highlight the clicked bomb
+        opacity: index === clickedIndex ? 1 : 0.5,
       };
     }
     return {};
   };
-  
+
   const resetGame = () => {
     setTimeout(() => {
-      setClickedTiles(Array(tileValue).fill(false)); // Reset clicked tiles
-      setClickedIndex(null); // Reset clicked index
-      setCurrentImageIndex(0); // Reset animation index
-      setIsAnimationComplete(false); // Reset animation state
-      setIsAllTilesDisabled(false); // Enable all tiles again
-      setIsGameStarted(false); // Reset the game start state
-  
-      // Clear local storage during game reset
+      setClickedTiles(Array(tileValue).fill(false));
+      setClickedIndex(null);
+      setCurrentImageIndex(0);
+      setIsAnimationComplete(false);
+      setIsAllTilesDisabled(false);
+      setIsGameStarted(false);
+
+
       localStorage.clear();
-    }, 3000); // 3 seconds delay
+    }, 3000);
   };
 
   const handleTileClick = (index: number): void => {
+    setTileClick(true)
     if (sound) {
       tileClickSound();
       setTimeout(() => {
-      if(index < 4) {
-        blueDimondSound()
-      }else if(index >= 4 && index < 7){
-        GreenDimondSound()
-      }
-      // else if(index >= 7 && index < 20){
-      //   GoldDimondSound()
-      // }
-      else{
-        BombBlastSound()
-      }
+        if (index < 4) {
+          blueDimondSound()
+        } else if (index >= 4 && index < 7) {
+          GreenDimondSound()
+        }
+        // else if(index >= 7 && index < 20){
+        //   GoldDimondSound()
+        // }
+        else {
+          setTileClick(false)
+          setGameStatus(false)
+          BombBlastSound()
+        }
       }, 200);
     }
-    if (clickedTiles[index] || isAllTilesDisabled) return; // Prevent clicking already clicked tiles or disabled tiles
-  
-    setLoadingTileIndex(index); // Set the clicked tile index to show the loading state
+    if (clickedTiles[index] || isAllTilesDisabled) return;
+
+
+    setLoadingTileIndex(index);
     setIsLoading(true)
-  
-  // After a short delay, reset loading state
-  setTimeout(() => {
-    setLoadingTileIndex(null); // Reset the loading state after the delay
-    setIsLoading(false)
-  },100);
-    // Mark the clicked tile and start animation for the blast image
+
+
+    setTimeout(() => {
+      setLoadingTileIndex(null);
+      setIsLoading(false)
+    }, 100);
+
     setClickedIndex(index);
     setCurrentImageIndex(0);
     setIsAnimationComplete(false);
-  
+
     setClickedTiles((prevTiles) => {
       const updatedTiles = [...prevTiles];
-      updatedTiles[index] = true; // Mark this tile as clicked
-  
-      // Save the updated tiles to local storage
+      updatedTiles[index] = true;
+
+
       localStorage.setItem("clickedTiles", JSON.stringify(updatedTiles));
       return updatedTiles;
     });
-  
-    // If bomb tile is clicked, clear local storage and disable all tiles
+
+
     if (index >= 7) {
       console.log("Bomb tile clicked, clearing clickedTiles from localStorage...");
-      localStorage.setItem("bombClicked", "true"); 
-      setIsAllTilesDisabled(true); 
-       setClickedTiles((prevTiles) => {
+      localStorage.setItem("bombClicked", "true");
+      setIsAllTilesDisabled(true);
+      setClickedTiles((prevTiles) => {
         const updatedTiles = [...prevTiles];
         for (let i = 7; i < updatedTiles.length; i++) {
           updatedTiles[i] = true;
         }
         return updatedTiles;
       });
-      // Keep tiles visible for 3 seconds, then reset the game
+
       setTimeout(() => {
-        resetGame(); // Reset the game state after 3 seconds
-      }, 3000); // 3-second delay before resetting
+        resetGame();
+      }, 3000);
     }
   };
-  
-  
-  
-  // Clear bombClicked and reset the game if the user refreshes
+
+
+
   useEffect(() => {
     const bombClicked = localStorage.getItem("bombClicked");
     if (bombClicked) {
       setTimeout(() => {
         localStorage.removeItem("clickedTiles");
-        localStorage.removeItem("bombClicked"); 
-        setIsAllTilesDisabled(true); 
+        localStorage.removeItem("bombClicked");
+        setIsAllTilesDisabled(true);
         resetGame();
-      }, 100); // Delay for 100ms
+      }, 100);
     }
   }, []);
-  
+
 
 
 
@@ -180,13 +195,13 @@ const MainGame: React.FC = () => {
     return (
       clickedTiles[index] &&
       getTileClass(index) === "_bomb" &&
-      index === clickedIndex && // Only animate the clicked bomb
+      index === clickedIndex &&
       !isAnimationComplete
     );
   };
   useEffect(() => {
     const savedTiles = localStorage.getItem("clickedTiles");
-    if(isGameStarted){
+    if (isGameStarted) {
       setAleartPop(true);
     }
     setTimeout(() => {
@@ -209,40 +224,41 @@ const MainGame: React.FC = () => {
 
   return (
     <div className="template__game">
-      <div className="game">
+      <div className="game"         
+       onClick={gameStatus === false ? ShowPopStartGame : undefined}>
         <div className={`game__grid
           ${tileValue === 9 && "_3x3"}
           ${tileValue === 25 && "_5x5"}
           ${tileValue === 49 && "_7x7"}
           ${tileValue === 81 && "_9x9"}
-          ${isGameStarted ? "" : "_disabled"}`}>
+          ${gameStatus ? "" : "_disabled"}`}
+          >
           {[...Array(tileValue)].map((_, index) => (
             <div
               key={index}
-              className={`game__item ${getTileClass(index)} ${
-                isAllTilesDisabled && !clickedTiles[index] ? "gameOver_disabled" : ""
-              }`}
+              className={`game__item ${getTileClass(index)} ${isAllTilesDisabled && !clickedTiles[index] ? "gameOver_disabled" : ""
+                }`}
               style={getTileStyle(index)}
               onClick={() => handleTileClick(index)}
             >
               <div className="game__item-layout1">
                 <div className="game__item-layout2">
                   {
-                    !isLoading && 
-                  <>
-                    {shouldShowBlastImage(index) ? (
-                    <div className="game__item-layout3_bomb">
-                      <img
-                        src={images[currentImageIndex]}
-                        alt={`Blast Image ${currentImageIndex + 1}`}
-                        className="animated__image"
-                      />
-                    </div>
-                  ) : (
-                    clickedIndex === index && !shouldShowBlastImage(index) && (
-                      <div className="game__item-layout3"></div>
-                    )
-                  )}
+                    !isLoading &&
+                    <>
+                      {shouldShowBlastImage(index) ? (
+                        <div className="game__item-layout3_bomb">
+                          <img
+                            src={images[currentImageIndex]}
+                            alt={`Blast Image ${currentImageIndex + 1}`}
+                            className="animated__image"
+                          />
+                        </div>
+                      ) : (
+                        clickedIndex === index && !shouldShowBlastImage(index) && (
+                          <div className="game__item-layout3"></div>
+                        )
+                      )}
                     </>
                   }
                   <div className="game__item-sum">$122</div>
@@ -251,6 +267,15 @@ const MainGame: React.FC = () => {
             </div>
           ))}
         </div>
+        {
+          isShowPop && <>
+           {
+        !gameStatus &&
+        <div className="start-alert"><div className="start-alert__alert">Please press Start Game</div></div>
+        }
+          </>
+        }
+       
       </div>
     </div>
   );

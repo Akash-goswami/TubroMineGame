@@ -240,19 +240,6 @@ button.startbtn {
     animation: place-hover 1s infinite;
 }
 
-@keyframes place-hover {
-    0% {
-        box-shadow: 0px 0px 1rem 0px #ff9d29;
-    }
-    
-    50% {
-        box-shadow: 0px 0px 1.875rem 0px #ffd686;
-    }
-    
-    100% {
-        box-shadow: 0px 0px 1rem 0px #ff9d29;
-}
-
 
 .history__value {
     display: flex;
@@ -328,3 +315,129 @@ button.startbtn {
         box-shadow: 0px 0px 1rem 0px #773436;
     }
 } */
+
+
+/* cashout btn style start */
+
+.cashout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 6.625rem;
+    height: 6.625rem;
+}
+
+.cashout__layout1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,0);
+    box-shadow: 0px 0px 1rem 0px #7331ff;
+}
+
+.cashout__layout2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #919ee7 0%, #9e42cd 100%);
+    box-shadow: .125rem .125rem .25rem 0px rgba(0,0,0,.5);
+}
+
+.cashout__layout3 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(136deg, #9d43ce 15.38%, #91a1e7 100%);
+}
+
+.cashout__layout4 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cashout__sum {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 1.5rem;
+    border-radius: .75rem;
+    border: .0625rem solid #d7afff;
+    background: radial-gradient(63.46% 227.27% at 50% -127.27%, rgba(0, 0, 0, 0) 0%, rgba(170, 122, 218, 0.15) 84.02%, rgba(163, 132, 220, 0.25) 91.76%, rgba(137, 141, 225, 0.7) 100%),linear-gradient(0deg, #000000, #000000);
+    padding-bottom: .125rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #00ff75;
+    text-align: center;
+    font-size: .625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.cashout__layout5 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fff 0%, #d7afff 100%);
+    -webkit-mask-image: radial-gradient(closest-side, transparent 98%, black 99%, black 100%);
+    mask-image: radial-gradient(closest-side, transparent 98%, black 99%, black 100%);
+}
+
+.cashout__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: .375rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: -0.0625rem -0.0625rem .0625rem rgba(0,0,0,.25);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+}
+
+@keyframes place-hover {
+    0% {
+        box-shadow: 0px 0px 1rem 0px #ff9d29;
+    }
+    
+    50% {
+        box-shadow: 0px 0px 1.875rem 0px #ffd686;
+    }
+    
+    100% {
+        box-shadow: 0px 0px 1rem 0px #ff9d29;
+}

@@ -123,13 +123,15 @@
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease-in-out;
-    opacity:0;
+    opacity:1;
   }
   
   .start-alert .offGame_Alert{
     opacity:1;
   }
   .start-alert__alert {
+    width: 300px;
+    font-size: 16px;
     position: absolute;
     left: 50%;
     top: 0.625rem;
@@ -140,9 +142,17 @@
     background: linear-gradient(315deg, #14181c 0%, #24272d 100%);
     box-shadow: 0.3125rem 0.3125rem 0.75rem 0px rgba(0, 0, 0, 0.5);
     color: #fff;
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
     text-align: center;
     pointer-events: none;
+    animation: zoom 0.1s ease-in;
+  }
+  @keyframes zoom {
+    0%{
+        scale: 0.3;
+    }100%{
+        scale: 1;
+    }
   }
   .game__item-layout3 {
     width: 100%;
@@ -354,5 +364,8 @@ animation: game-item-open .25s linear forwards;
 }
 .tile-disabled{
     pointer-events:none;
+}
+.game__grid._disabled {
+    pointer-events: none;
 }
 }
