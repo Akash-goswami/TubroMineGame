@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './StartButton.css';
 import { useMainGameContext } from "../../../context/MainGameContext";
-
+ 
 function StartButton() {
         const { gameStatus, setGameStatus } = useMainGameContext();
-
+ 
     // console.log('gameStatus', gameStatus);
-
+ 
     return (
         <>
             <div className="multiplayer-startbtns mixcmn">
@@ -74,13 +74,9 @@ function StartButton() {
                     )}
                 </div>
             </div>
-
-            <div className="control__button">
-                <ButtonLayout className="place" text="Start Game" />
-                {/* <ButtonLayout className="cancel" text="Cancel" /> */}
-            </div>
         </>
     );
 }
+
 
 export default StartButton;
